@@ -1,0 +1,28 @@
+{
+  "Header": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "HeroSection": {
+    "title-start": "Creando Experiencias",
+    "title-end": "",
+    "animated-word-1": "Digitales",
+    "animated-word-2": "Modernas",
+    "animated-word-3": "Creativas",
+    "animated-word-4": "Innovadoras",
+    "subtitle": "Un desarrollador apasionado construyendo aplicaciones web modernas, responsivas y amigables para el usuario.",
+    "button": "Ver mi Trabajo"
+  },
+  "ContactSection": {
+    "title": "Ponte en Contacto",
+    "subtitle": "¿Tienes alguna pregunta o quieres que trabajemos juntos? Rellena el siguiente formulario o envíame un correo electrónico directamente.",
+    "namePlaceholder": "Tu Nombre",
+    "emailPlaceholder": "Tu Correo Electrónico",
+    "messagePlaceholder": "Tu Mensaje",
+    "submitButton": "Enviar Mensaje",
+    "submittingButton": "Enviando...",
+    "orDirectly": "O contáctame directamente:",
+    "emailAddress": "tu.email@example.com"
+  }
+}

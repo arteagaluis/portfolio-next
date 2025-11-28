@@ -1,0 +1,28 @@
+{
+  "Header": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "HeroSection": {
+    "title-start": "Crafting",
+    "title-end": "Experiences",
+    "animated-word-1": "Digital",
+    "animated-word-2": "Modern",
+    "animated-word-3": "Creative",
+    "animated-word-4": "Innovative",
+    "subtitle": "A passionate developer building modern, responsive, and user-friendly web applications.",
+    "button": "View My Work"
+  },
+  "ContactSection": {
+    "title": "Get in Touch",
+    "subtitle": "Have a question or want to work together? Fill out the form below or email me directly.",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "submitButton": "Send Message",
+    "submittingButton": "Sending...",
+    "orDirectly": "Or reach out directly:",
+    "emailAddress": "your.email@example.com"
+  }
+}

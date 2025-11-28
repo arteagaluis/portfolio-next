@@ -1,0 +1,46 @@
+{
+  "placeholderImages": [
+    {
+      "id": "about-me",
+      "description": "A portrait of a person for the about me section.",
+      "imageUrl": "https://images.unsplash.com/photo-1547311988-f12899634fd5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cG9ydHJhaXQlMjBwZXJzb258ZW58MHx8fHwxNzYzNjk4NTE1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "portrait person"
+    },
+    {
+      "id": "project-1",
+      "description": "Placeholder for project 1",
+      "imageUrl": "https://images.unsplash.com/photo-1562575214-da9fcf59b907?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWNobm9sb2d5JTIwYWJzdHJhY3R8ZW58MHx8fHwxNzYzNzQ5NDY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "technology abstract"
+    },
+    {
+      "id": "project-2",
+      "description": "Placeholder for project 2",
+      "imageUrl": "https://images.unsplash.com/photo-1653387141060-9a9834f47777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb2RlJTIwcHJvZ3JhbW1pbmd8ZW58MHx8fHwxNzYzNzEyNTgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code programming"
+    },
+    {
+      "id": "project-3",
+      "description": "Placeholder for project 3",
+      "imageUrl": "https://images.unsplash.com/photo-1518655048521-f130df041f66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxsYXB0b3AlMjBkZXNrfGVufDB8fHx8MTc2MzY1Njg5MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop desk"
+    },
+    {
+      "id": "project-4",
+      "description": "Placeholder for project 4",
+      "imageUrl": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxvZmZpY2UlMjB3b3Jrc3BhY2V8ZW58MHx8fHwxNzYzNzQ5Mzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office workspace"
+    },
+    {
+      "id": "project-5",
+      "description": "Placeholder for project 5",
+      "imageUrl": "https://images.unsplash.com/photo-1761746395536-00d334eba480?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkZXNpZ24lMjBza2V0Y2h8ZW58MHx8fHwxNzYzNjk1NzgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "design sketch"
+    },
+    {
+      "id": "project-6",
+      "description": "Placeholder for project 6",
+      "imageUrl": "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkYXRhJTIwYW5hbHl0aWNzfGVufDB8fHx8MTc2MzczNzk3OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data analytics"
+    }
+  ]
+}
