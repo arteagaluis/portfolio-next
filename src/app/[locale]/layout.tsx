@@ -1,26 +1,26 @@
-import type { Metadata } from 'next';
-import { ReactNode } from 'react';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Toaster } from '@/components/ui/toaster';
-import { Fonts } from '@/components/fonts';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
-import '../globals.css';
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages, getLocale} from 'next-intl/server';
-import {notFound} from 'next/navigation';
-import {locales} from '@/navigation';
-import { PreLoader } from '@/components/pre-loader';
-import { LoaderProvider } from '@/context/loader-context';
+import type { Metadata } from "next";
+import { ReactNode } from "react";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { Fonts } from "@/components/fonts";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import "../globals.css";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { locales } from "@/navigation";
+import { PreLoader } from "@/components/pre-loader";
+import { LoaderProvider } from "@/context/loader-context";
 
 export const metadata: Metadata = {
-  title: 'Personal Canvas',
-  description: 'A personal portfolio website.',
+  title: "Luis Arteaga",
+  description: "A personal portfolio website.",
 };
 
 type Props = {
   children: ReactNode;
-  params: {locale: string};
+  params: { locale: string };
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -35,7 +35,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   if (!locales.includes(locale as any)) {
     notFound();
   }
-  
+
   const messages = await getMessages();
 
   return (
