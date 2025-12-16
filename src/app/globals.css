@@ -68,6 +68,17 @@
   html {
     scroll-behavior: smooth;
   }
+  
+  /* Smooth transition for theme-dependent properties */
+  body,
+  html,
+  [class*="bg-"],
+  [class*="text-"],
+  [class*="border-"] {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.5s;
+  }
 }
 
 @layer utilities {

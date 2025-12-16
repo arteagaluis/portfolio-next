@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         body: ["Inter", "sans-serif"],
         headline: ["Inter", "sans-serif"],
-        code: ['"Courier New"', "monospace"],
+        code: ['"JetBrains Mono"', '"Fira Code"', "Consolas", "Monaco", '"Courier New"', "monospace"],
       },
       colors: {
         background: "hsl(var(--background))",
@@ -92,11 +92,16 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
+        "gradient": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "cursor-blink": "cursor-blink 1s infinite",
+        "gradient": "gradient 3s ease infinite",
       },
     },
   },

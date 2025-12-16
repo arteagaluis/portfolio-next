@@ -1,6 +1,7 @@
 {
   "Header": {
     "about": "Sobre mí",
+    "experience": "Experiencia",
     "projects": "Proyectos",
     "contact": "Contacto"
   },
@@ -12,7 +13,20 @@
     "animated-word-3": "Creativas",
     "animated-word-4": "Innovadoras",
     "subtitle": "Un desarrollador apasionado construyendo aplicaciones web modernas, responsivas y amigables para el usuario.",
-    "button": "Ver mi Trabajo"
+    "button": "Ver mi Trabajo",
+    "button-secondary": "Contactar",
+    "badge": "Disponible para proyectos"
+  },
+  "AboutSection": {
+    "title": "Sobre Mí",
+    "imageAlt": "Sobre mí",
+    "paragraph1": "Soy un desarrollador de software dedicado con pasión por crear interfaces de usuario hermosas y funcionales. Con una base sólida en tecnologías web modernas, me especializo en construir aplicaciones responsivas y de alto rendimiento usando React, Next.js y TypeScript.",
+    "paragraph2": "Mi experiencia abarca el desarrollo front-end y back-end, lo que me permite construir soluciones completas desde cero. Prospero en entornos colaborativos y siempre estoy ansioso por aprender nuevas habilidades y abordar problemas desafiantes. Cuando no estoy programando, disfruto explorando nuevas tecnologías y contribuyendo a proyectos de código abierto."
+  },
+  "ExperienceSection": {
+    "title": "Experiencia Laboral",
+    "subtitle": "Una línea de tiempo interactiva que destaca responsabilidades, logros y tecnologías.",
+    "carouselAria": "Carrusel de experiencias laborales"
   },
   "ContactSection": {
     "title": "Ponte en Contacto",

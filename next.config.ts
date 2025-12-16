@@ -1,13 +1,14 @@
-import createNextIntlPlugin from 'next-intl/plugin';
-import type {NextConfig} from 'next';
- 
+import createNextIntlPlugin from "next-intl/plugin";
+import type { NextConfig } from "next";
+
 const withNextIntl = createNextIntlPlugin(
   // This is the default (also the recommended)
   // setup for Next.js App Router
-  './src/i18n.ts'
+  "./src/i18n.ts"
 );
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,
@@ -18,16 +19,16 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "picsum.photos",
+        port: "",
+        pathname: "/**",
       },
     ],
   },

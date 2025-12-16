@@ -10,9 +10,12 @@ export function TypingAnimation({ words }: TypingAnimationProps) {
   const [wordIndex, setWordIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
     const currentWord = words[wordIndex];
+    if (!currentWord) return;
+    
     const typingSpeed = isDeleting ? 75 : 150;
 
     const handleTyping = () => {
@@ -35,5 +38,22 @@ export function TypingAnimation({ words }: TypingAnimationProps) {
     return () => clearTimeout(typingTimeout);
   }, [text, isDeleting, wordIndex, words]);
 
-  return <span className="text-primary">{text}</span>;
+  // Cursor blink animation
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 530);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  return (
+    <span className="text-primary relative inline-block">
+      {text}
+      <span
+        className={`inline-block w-0.5 h-[1em] bg-primary ml-1 align-middle transition-opacity duration-300 ${
+          showCursor ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+    </span>
+  );
 }

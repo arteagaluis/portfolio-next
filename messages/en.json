@@ -1,6 +1,7 @@
 {
   "Header": {
     "about": "About",
+    "experience": "Experience",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -12,7 +13,20 @@
     "animated-word-3": "Creative",
     "animated-word-4": "Innovative",
     "subtitle": "A passionate developer building modern, responsive, and user-friendly web applications.",
-    "button": "View My Work"
+    "button": "View My Work",
+    "button-secondary": "Get in Touch",
+    "badge": "Available for projects"
+  },
+  "AboutSection": {
+    "title": "About Me",
+    "imageAlt": "About me",
+    "paragraph1": "I am a dedicated software developer with a passion for creating beautiful and functional user interfaces. With a strong foundation in modern web technologies, I specialize in building responsive and performant applications using React, Next.js, and TypeScript.",
+    "paragraph2": "My experience spans across front-end and back-end development, allowing me to build comprehensive solutions from scratch. I thrive in collaborative environments and am always eager to learn new skills and tackle challenging problems. When I'm not coding, I enjoy exploring new technologies and contributing to open-source projects."
+  },
+  "ExperienceSection": {
+    "title": "Work Experience",
+    "subtitle": "An interactive timeline highlighting responsibilities, achievements, and technologies.",
+    "carouselAria": "Work experience carousel"
   },
   "ContactSection": {
     "title": "Get in Touch",
