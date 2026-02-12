@@ -28,6 +28,16 @@
     "subtitle": "An interactive timeline highlighting responsibilities, achievements, and technologies.",
     "carouselAria": "Work experience carousel"
   },
+  "hobbies": {
+    "title": "Hobbies",
+    "description": "Activities I enjoy outside of professional work.",
+    "items": [
+      "Reading books about technology and philosophy",
+      "Exploring artificial intelligence research",
+      "Building experimental side projects",
+      "Fitness and outdoor activities"
+    ]
+  },
   "ContactSection": {
     "title": "Get in Touch",
     "subtitle": "Have a question or want to work together? Fill out the form below or email me directly.",

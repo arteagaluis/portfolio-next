@@ -28,6 +28,16 @@
     "subtitle": "Una línea de tiempo interactiva que destaca responsabilidades, logros y tecnologías.",
     "carouselAria": "Carrusel de experiencias laborales"
   },
+  "hobbies": {
+    "title": "Hobbies",
+    "description": "Actividades que disfruto fuera del ámbito profesional.",
+    "items": [
+      "Leer libros sobre tecnología y filosofía",
+      "Explorar investigaciones en inteligencia artificial",
+      "Construir proyectos experimentales personales",
+      "Entrenamiento físico y actividades al aire libre"
+    ]
+  },
   "ContactSection": {
     "title": "Ponte en Contacto",
     "subtitle": "¿Tienes alguna pregunta o quieres que trabajemos juntos? Rellena el siguiente formulario o envíame un correo electrónico directamente.",

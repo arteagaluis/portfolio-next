@@ -85,6 +85,9 @@ const highlightSyntax = (line: string): ReactNode[] => {
   return parts;
 };
 
+const CODE_TYPING_SPEED = 8;
+const TERMINAL_TYPING_SPEED = 60;
+
 export function PreLoader() {
   const { isLoading, setIsLoading } = useLoader();
   const [isMounted, setIsMounted] = useState(false);
@@ -124,7 +127,6 @@ export function PreLoader() {
     }
 
     const currentLineText = codeLines[currentLineIndex].text;
-    const typingSpeed = 15;
 
     const typingTimeout = setTimeout(() => {
       if (currentCharIndex < currentLineText.length) {
@@ -139,7 +141,7 @@ export function PreLoader() {
         setCurrentLineIndex(currentLineIndex + 1);
         setCurrentCharIndex(0);
       }
-    }, typingSpeed);
+    }, CODE_TYPING_SPEED);
 
     return () => clearTimeout(typingTimeout);
   }, [isLoading, currentLineIndex, currentCharIndex]);
@@ -149,12 +151,11 @@ export function PreLoader() {
     if (!showTerminal) return;
 
     const command = "npm run build";
-    const typingSpeed = 100;
 
     if (typedCommand.length < command.length) {
       const timeout = setTimeout(() => {
         setTypedCommand(command.substring(0, typedCommand.length + 1));
-      }, typingSpeed);
+      }, TERMINAL_TYPING_SPEED);
       return () => clearTimeout(timeout);
     } else {
       const timeout = setTimeout(() => {
