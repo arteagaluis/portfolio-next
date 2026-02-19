@@ -1,62 +1,108 @@
-# 03 — Routing & i18n
+# 03 - Routing and i18n
 
-## Routing Strategy
+## 🧭 Estrategia de Routing
 
-The project uses **Next.js App Router** with locale-based dynamic routing:
+Se utiliza **Next.js App Router (v14)** con estructura basada en carpetas.
+
+Ubicación principal:
 
 ```
-src/app/[locale]/
+src/app/
+  layout.tsx
+  page.tsx
+  [locale]/
+    layout.tsx
+    page.tsx
 ```
 
-All main pages are nested inside the `[locale]` segment.
+El sistema permite renderizado por idioma dinámico mediante segmento `[locale]`.
 
 ---
 
-## Middleware
+## 🌍 Organización por Dominio
 
-- Middleware is defined in:
-  - `src/middleware.ts`
-- Handles:
-  - Locale detection
-  - Redirection to default locale
-  - Internationalized routing enforcement
+Las rutas no contienen lógica de negocio.  
+Las secciones se delegan a:
 
----
+```
+src/components/sections/
+```
 
-## next-intl Integration
-
-- Config file: `src/i18n.ts`
-- Messages stored in:
-  - `/messages/en.json`
-  - `/messages/es.json`
-- Locale passed via route segment
-- Translations consumed via hooks inside components
+Las rutas solo orquestan layout y carga de contenido.
 
 ---
 
-## Default Locale
+## 🔁 Rutas Dinámicas
 
-- English (en) assumed as default
-- Spanish (es) supported
-- Middleware ensures fallback behavior
+Estructura actual:
 
----
+- `/`
+- `/{locale}`
 
-## Navigation
+Escalable a:
 
-- Navigation helpers defined in:
-  - `src/navigation.ts`
-- Locale-aware linking
-- Consistent routing pattern
+- `/{locale}/projects/[slug]`
+- `/{locale}/blog/[slug]`
 
 ---
 
-## Constraints
+## 🧱 Manejo de Layouts
 
-- Every route must include a locale
-- No root-level non-localized pages
-- Middleware must remain synchronized with supported locales
+- layout.tsx raíz: estructura global
+- layout.tsx por locale: configuración de idioma
+- Layout desacoplado de lógica AI
 
 ---
 
-This file defines how routing and localization are structured.
+## 🌐 Estrategia i18n
+
+Ubicación de mensajes:
+
+```
+messages/
+  en.json
+  es.json
+```
+
+Implementación:
+
+- Carga por locale
+- Hook personalizado de traducción
+- Sin lógica de UI en archivos de idioma
+
+---
+
+## 📈 Escalabilidad del Sistema de Navegación
+
+- Navegación desacoplada
+- Fácil expansión a más idiomas
+- Posibilidad de lazy loading por idioma
+
+---
+
+## 🧪 Estrategia de Testing de Rutas
+
+- Render con wrapper de router mock
+- Validar redirecciones
+- Validar carga correcta por locale
+- Testear layouts independientemente
+
+---
+
+## ⚠ Riesgos Identificados
+
+- Inconsistencia entre mensajes
+- Errores en slug dinámico
+- Re-render innecesario en cambio de idioma
+
+---
+
+## ✅ Coherencia Arquitectónica
+
+Routing:
+
+- No contiene lógica de negocio
+- No contiene llamadas AI directas
+- Solo orquesta vistas
+
+Totalmente alineado con 01-architecture-map.md

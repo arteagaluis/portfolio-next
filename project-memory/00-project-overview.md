@@ -1,52 +1,120 @@
-# 00 — Project Overview
+# 00 - Project Overview
 
-## Project Name
-**portfolio-next**
+## 📌 Visión General
 
-## Description
-Modern, modular developer portfolio built with Next.js App Router, React 18+, TypeScript and TailwindCSS.  
-Includes multilingual support and AI-powered features.
+**Proyecto:** Portfolio Profesional con Integración AI  
+**Stack base:** Next.js (App Router) + React 18  
+**npm:** 10.9.2  
 
----
-
-## Core Objectives
-
-- Showcase professional experience and projects
-- Support multilingual routing (i18n)
-- Integrate AI-assisted project suggestion system
-- Maintain clean modular architecture
-- Be production-ready with Docker support
+Aplicación SPA/SSR híbrida construida con React ^18.2.0 y react-dom ^18.2.0 sobre Next.js, diseñada para mostrar experiencia profesional, proyectos y permitir interacción inteligente mediante flujos AI desacoplados.
 
 ---
 
-## Architectural Philosophy
+## 🎯 Problema que Resuelve
 
-- App Router-first design
-- Modular structure under `src/`
-- Separation of concerns by domain
-- Scalable AI integration
-- UI consistency via shadcn/ui
+- Presentación profesional tradicional es estática.
+- Falta diferenciación técnica en portfolios.
+- Ausencia de interacción inteligente personalizada.
 
----
-
-## Design Principles
-
-- Simplicity over complexity
-- Explicit over implicit
-- Memory-driven workflow (project-memory is source of truth)
-- Minimal re-analysis of existing architecture
+El sistema incorpora IA para sugerencia dinámica de proyectos y mejora de experiencia.
 
 ---
 
-## Current Status
+## 🎯 Objetivos Estratégicos
 
-- ✅ Next.js App Router implemented
-- ✅ i18n via next-intl configured
-- ✅ AI system integrated (Genkit)
-- ✅ Modular component architecture
-- ✅ Docker support available
-- ✅ Persistent technical memory initialized
+- Mostrar capacidades técnicas reales.
+- Demostrar arquitectura escalable.
+- Integrar AI desacoplada del UI.
+- Mantener alta calidad de código.
+- Garantizar mantenibilidad y cobertura ≥ 80%.
 
 ---
 
-This file defines the high-level vision of the system.
+## ✅ Alcance Funcional
+
+### In Scope
+- Renderizado por locales (`/en`, `/es`)
+- Secciones: Hero, About, Experience, Projects, Contact
+- Sugerencia AI de proyectos
+- Sistema de temas
+- Layout modular
+
+### Out of Scope
+- Sistema de autenticación
+- Panel administrativo
+- Backend persistente
+
+---
+
+## 📋 Requisitos Funcionales
+
+- Renderizado multi-idioma
+- Componentes reutilizables
+- Integración AI desacoplada
+- Layout escalable
+- Arquitectura modular
+
+---
+
+## 📐 Requisitos No Funcionales
+
+### Performance
+- Lazy loading en secciones
+- Minimización de re-renderizados
+- Uso eficiente de hooks
+
+### Seguridad
+- Sanitización de entradas AI
+- No exponer claves sensibles
+
+### Mantenibilidad
+- Feature-based architecture
+- Separación estricta UI / lógica
+- Testing obligatorio ≥ 80%
+
+---
+
+## 📊 Criterios de Éxito
+
+- Cobertura mínima global 80%
+- Arquitectura documentada
+- Modularidad clara
+- Sin dependencias acopladas a UI
+
+---
+
+## 👥 Público Objetivo
+
+- Reclutadores técnicos
+- Empresas tech
+- Equipos de ingeniería
+- Clientes potenciales
+
+---
+
+## 🧠 Enfoque de Desarrollo
+
+- SPA híbrida con Next.js App Router
+- React ^18.2.0
+- react-dom ^18.2.0
+- npm 10.9.2
+- Arquitectura modular por dominio
+
+---
+
+## 🔎 Estrategia General de Calidad
+
+- ESLint + Prettier obligatorios
+- Testing unitario y de componentes
+- Coverage gates automáticos
+- Logs de decisiones arquitectónicas (ADR)
+- Revisión continua de impacto en testing
+
+---
+
+## 🧪 Política Mínima de Cobertura
+
+- Global ≥ 80%
+- Dominio crítico ≥ 90%
+- Utilities ≥ 95%
+- AI flows ≥ 85%

@@ -9,6 +9,8 @@ export function ProjectsSection() {
         "A brief description of the first project, highlighting its key features and purpose.",
       tags: ["React", "Next.js", "Tailwind CSS"],
       image: PlaceHolderImages.find((p) => p.id === "project-1")!,
+      externalUrl:
+        "https://servicios.porvenir.com.co/cdc/front/cesantias/habeas-data/home",
     },
     {
       title: "Project Two",
@@ -16,6 +18,8 @@ export function ProjectsSection() {
         "An overview of the second project, focusing on the technologies used and problems solved.",
       tags: ["TypeScript", "Node.js", "PostgreSQL"],
       image: PlaceHolderImages.find((p) => p.id === "project-2")!,
+      externalUrl:
+        "https://servicios.porvenir.com.co/cdc/front/habeasdata/habeas-data-pi",
     },
     {
       title: "Project Three",
@@ -23,6 +27,8 @@ export function ProjectsSection() {
         "Details about the third project, showcasing complex functionalities and design patterns.",
       tags: ["GraphQL", "Apollo", "Prisma"],
       image: PlaceHolderImages.find((p) => p.id === "project-3")!,
+      externalUrl:
+        "https://servicios.porvenir.com.co/cdc/front/cesantias/autogestionado/validacion-viabilidad",
     },
     {
       title: "Project Four",
@@ -30,20 +36,8 @@ export function ProjectsSection() {
         "This project demonstrates expertise in building scalable and maintainable applications.",
       tags: ["Vue.js", "Nuxt.js", "Firebase"],
       image: PlaceHolderImages.find((p) => p.id === "project-4")!,
-    },
-    {
-      title: "Project Five",
-      description:
-        "A mobile-first application designed for a seamless user experience on all devices.",
-      tags: ["React Native", "Expo", "Styled Components"],
-      image: PlaceHolderImages.find((p) => p.id === "project-5")!,
-    },
-    {
-      title: "Project Six",
-      description:
-        "An e-commerce platform with a custom backend and a modern, responsive frontend.",
-      tags: ["Shopify", "Liquid", "JavaScript"],
-      image: PlaceHolderImages.find((p) => p.id === "project-6")!,
+      externalUrl:
+        "https://servicios.porvenir.com.co/evd-aut-afiliacion-traslado-pension/validacion-identidad",
     },
   ];
 

@@ -28,6 +28,9 @@
     "subtitle": "An interactive timeline highlighting responsibilities, achievements, and technologies.",
     "carouselAria": "Work experience carousel"
   },
+  "ProjectsSection": {
+    "viewProject": "View Project"
+  },
   "hobbies": {
     "title": "Hobbies",
     "description": "Activities I enjoy outside of professional work.",

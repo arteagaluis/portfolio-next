@@ -28,6 +28,9 @@
     "subtitle": "Una línea de tiempo interactiva que destaca responsabilidades, logros y tecnologías.",
     "carouselAria": "Carrusel de experiencias laborales"
   },
+  "ProjectsSection": {
+    "viewProject": "Ver Proyecto"
+  },
   "hobbies": {
     "title": "Hobbies",
     "description": "Actividades que disfruto fuera del ámbito profesional.",
