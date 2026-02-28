@@ -7,7 +7,7 @@ import { ArrowDown, Sparkles, Code2, Zap } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 export function HeroSection() {
-  const t = useTranslations("HeroSection");
+  const t = useTranslations("hero");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const trailCanvasRef = useRef<HTMLCanvasElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -192,7 +192,7 @@ export function HeroSection() {
 
               // Draw elevated grid lines with gradient
               const alpha = influence * 0.2;
-              
+
               // Horizontal line
               ctx.beginPath();
               ctx.moveTo(x + offsetX, y + offsetY);
@@ -318,7 +318,7 @@ export function HeroSection() {
                 <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
                   <TypingAnimation words={animatedWords} />
                 </span>
-                <span className="block">{t("title-end")}</span>
+                {t("title-end") && <span className="block">{t("title-end")}</span>}
               </h1>
 
               {/* Subtitle with enhanced styling */}
@@ -335,7 +335,7 @@ export function HeroSection() {
                 className="px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group relief-element"
               >
                 <a href="#projects">
-                  {t("button")}
+                  {t("ctaPrimary")}
                   <ArrowDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform inline-block" />
                 </a>
               </Button>
@@ -346,7 +346,7 @@ export function HeroSection() {
                 className="px-8 py-6 text-lg rounded-lg border-2 hover:bg-primary/5 transition-all duration-300 hover:scale-105 relief-element"
               >
                 <a href="#contact">
-                  {t("button-secondary")}
+                  {t("ctaSecondary")}
                 </a>
               </Button>
             </div>

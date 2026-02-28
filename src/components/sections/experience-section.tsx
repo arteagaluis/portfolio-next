@@ -1,37 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { useMemo, useRef, useState, useEffect } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import {
-  PlaceHolderImages,
-  type ImagePlaceholder,
-} from "@/lib/placeholder-images";
 import { useTranslations } from "next-intl";
-import { Code2, Cpu, Database, Globe, Layers, Server } from "lucide-react";
+import {
+  Code2, Cpu, Database, Globe, Layers, Server,
+  Terminal, Calendar, Building2, Briefcase, Zap,
+  ChevronRight, CircuitBoard
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type Experience = {
+  id: string;
   company: string;
   role: string;
   start: string;
@@ -39,13 +21,9 @@ type Experience = {
   description: string;
   achievements: string[];
   technologies: string[];
-  logo?: ImagePlaceholder;
 };
 
-const techIconMap: Record<
-  string,
-  React.ComponentType<{ className?: string }>
-> = {
+const techIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   React: Code2,
   "Next.js": Layers,
   TypeScript: Code2,
@@ -59,242 +37,241 @@ const techIconMap: Record<
   "Tailwind CSS": Layers,
   Vue: Code2,
   "Vue.js": Code2,
+  "Spring Boot": Zap,
 };
 
 export function ExperienceSection() {
-  const t = useTranslations("ExperienceSection");
-  const [api, setApi] = useState<CarouselApi | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [mounted, setMounted] = useState(false);
+  const t = useTranslations("experience");
   const sectionRef = useRef<HTMLElement>(null);
-
-  const experiences: Experience[] = useMemo(
-    () => [
-      {
-        company: "TechNova",
-        role: "Senior Full‑Stack Developer",
-        start: "01/2022",
-        end: "Presente",
-        description:
-          "Lideré el desarrollo de funcionalidades core y optimicé el rendimiento del frontend en una plataforma SaaS.",
-        achievements: [
-          "Reduje el TTI en 35% mediante optimización de bundles y caché",
-          "Implementé CI/CD con despliegues automáticos y feature flags",
-          "Mentoricé al equipo en prácticas de accesibilidad (WCAG 2.1 AA)",
-        ],
-        technologies: [
-          "React",
-          "Next.js",
-          "TypeScript",
-          "Node.js",
-          "PostgreSQL",
-        ],
-        logo: PlaceHolderImages.find((p) => p.id === "project-6"),
-      },
-      {
-        company: "DataForge",
-        role: "Frontend Engineer",
-        start: "06/2020",
-        end: "12/2021",
-        description:
-          "Construí interfaces interactivas de análisis de datos y mejoré la experiencia de usuario con micro‑interacciones.",
-        achievements: [
-          "Diseñé componentes reutilizables y accesibles",
-          "Introduje pruebas de usabilidad y mejoras de UX",
-          "Migré estilos a un sistema utilitario con Tailwind CSS",
-        ],
-        technologies: ["React", "TypeScript", "GraphQL", "Apollo", "Prisma"],
-        logo: PlaceHolderImages.find((p) => p.id === "project-3"),
-      },
-      {
-        company: "CloudWorks",
-        role: "Full‑Stack Developer",
-        start: "02/2018",
-        end: "05/2020",
-        description:
-          "Desarrollé aplicaciones escalables y servicios backend, integrando autenticación y almacenamiento en la nube.",
-        achievements: [
-          "Creé APIs REST robustas con validación y logging",
-          "Implementé SSR y optimización de imágenes",
-          "Mejoré la observabilidad con métricas y trazas",
-        ],
-        technologies: ["Vue.js", "Node.js", "Firebase", "PostgreSQL"],
-        logo: PlaceHolderImages.find((p) => p.id === "project-4"),
-      },
-    ],
-    []
-  );
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (!api) return;
-    const onSelect = () => {
-      const idx = api.selectedScrollSnap();
-      setSelectedIndex(idx);
-      const p = api.scrollProgress();
-      setProgress(p);
-    };
-    api.on("select", onSelect);
-    api.on("reInit", onSelect);
-    onSelect();
-    return () => {
-      api.off("select", onSelect);
-      api.off("reInit", onSelect);
-    };
-  }, [api]);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const experiences: Experience[] = useMemo(() => {
+    const roleKeys = ["techNova", "dataForge", "cloudWorks"] as const;
+    return roleKeys.map((key) => {
+      const period = t(`roles.${key}.period`) || "";
+      const [start, end] = period.includes(" — ") ? period.split(" — ") : [period, ""];
+      return {
+        id: key,
+        company: t(`roles.${key}.company`) || "",
+        role: t(`roles.${key}.role`) || "",
+        start,
+        end,
+        description: t(`roles.${key}.description`) || "",
+        achievements: [
+          t(`roles.${key}.achievements.1`),
+          t(`roles.${key}.achievements.2`),
+          t(`roles.${key}.achievements.3`),
+        ].filter(Boolean),
+        technologies: (t(`roles.${key}.technologies`) || "").split(", ").map(tech => tech.trim()).filter(Boolean),
+      };
+    });
+  }, [t]);
 
   return (
     <section
       id="experience"
       ref={sectionRef}
-      className="w-full py-12 md:py-24 lg:py-32 bg-background flex justify-center"
-      aria-labelledby="experience-title"
+      className="relative w-full py-24 md:py-32 bg-background/50 overflow-hidden"
     >
-      <div className="container px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <h2
-            id="experience-title"
-            className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline"
-          >
-            {t("title")}
-          </h2>
-          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            {t("subtitle")}
-          </p>
+      {!isMounted ? (
+        <div className="container px-4 text-center">
+          <h2 className="text-4xl font-headline font-black mb-4 opacity-50">{t("title")}</h2>
+          <div className="h-1.5 w-24 bg-primary/20 mx-auto rounded-full" />
         </div>
-
-        <div className="relative mx-auto max-w-6xl">
-          <div className="relative h-2 rounded-full bg-muted overflow-hidden">
-            <div
-              className="absolute left-0 top-0 h-full bg-primary transition-[width] duration-500 ease-out"
-              style={{ width: `${Math.max(0, Math.min(1, progress)) * 100}%` }}
-              aria-hidden="true"
-            />
-            <span className="sr-only">
-              Progreso de línea de tiempo: {Math.round(progress * 100)}%
-            </span>
+      ) : (
+        <>
+          {/* Background Decorative Elements */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.07]" aria-hidden="true">
+            <div className="absolute top-0 left-0 w-full h-full bg-[grid-linear-gradient(to_right,#80808012_1px,transparent_1px),grid-linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
           </div>
-          <div className="mt-4 flex justify-between">
-            {experiences.map((exp, i) => (
-              <button
-                key={exp.company + i}
-                type="button"
-                className={`relative inline-flex items-center justify-center rounded-full border bg-background px-3 py-1 text-xs font-medium transition-all
-                ${
-                  selectedIndex === i
-                    ? "border-primary text-primary shadow"
-                    : "border-border text-muted-foreground"
-                }
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-reduce:transition-none`}
-                onClick={() => api?.scrollTo(i)}
-                aria-current={selectedIndex === i ? "step" : undefined}
-                aria-label={`${exp.company} · ${exp.start} – ${exp.end}`}
+
+          <div className="container relative px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-20">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
               >
-                {exp.company}
-              </button>
-            ))}
-          </div>
-        </div>
+                <Badge variant="outline" className="mb-4 px-4 py-1 border-primary/30 text-primary/80 bg-primary/5">
+                  <Terminal className="w-3 h-3 mr-2" />
+                  history.sh
+                </Badge>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight font-headline mb-4">
+                  {t("title")}
+                </h2>
+                <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mb-6" />
+                <p className="max-w-[700px] mx-auto text-muted-foreground text-lg md:text-xl font-light leading-relaxed">
+                  {t("subtitle")}
+                </p>
+              </motion.div>
+            </div>
 
-        <div className="mt-10">
-          <Carousel
-            opts={{ loop: false, dragFree: true }}
-            setApi={setApi}
-            className="w-full overflow-hidden"
-            aria-label={t("carouselAria")}
-          >
-            <CarouselContent>
-              {experiences.map((exp, index) => (
-                <CarouselItem
-                  key={exp.company + index}
-                  className="md:basis-1/2 lg:basis-1/3"
-                >
-                  <Card
-                    className={`group h-full transition-all duration-500 ease-out motion-reduce:transition-none
-                    hover:shadow-xl hover:-translate-y-1 hover:scale-[1.01] will-change-transform`}
-                    style={{
-                      opacity: mounted ? 1 : 0,
-                      transform: mounted ? "none" : "translateY(12px)",
-                      transitionDelay: mounted ? `${index * 120}ms` : "0ms",
-                    }}
-                  >
-                    <CardHeader className="flex flex-row items-center gap-4">
-                      {exp.logo && (
-                        <div className="relative h-12 w-12 shrink-0 rounded-md overflow-hidden border border-border/40">
-                          <Image
-                            src={exp.logo.imageUrl}
-                            alt={exp.company}
-                            fill
-                            sizes="48px"
-                            className="object-cover"
-                            data-ai-hint={exp.logo.imageHint}
-                          />
-                        </div>
-                      )}
-                      <div className="min-w-0">
-                        <CardTitle className="text-xl font-headline">
-                          {exp.company}
-                        </CardTitle>
-                        <CardDescription className="mt-0.5">
-                          {exp.role}
-                        </CardDescription>
-                        <div
-                          className="text-xs text-muted-foreground mt-1"
-                          aria-label="Periodo de empleo"
-                        >
-                          {exp.start} — {exp.end}
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">
-                        {exp.description}
-                      </p>
-                      <ul className="mt-3 space-y-2">
-                        {exp.achievements.map((ach, i) => (
-                          <li key={i} className="text-sm">
-                            • {ach}
-                          </li>
-                        ))}
-                      </ul>
-                      <div
-                        className="mt-4 flex flex-wrap gap-2"
-                        aria-label="Tecnologías utilizadas"
-                      >
-                        <TooltipProvider>
-                          {exp.technologies.map((tech) => {
-                            const Icon = techIconMap[tech] ?? Cpu;
-                            return (
-                              <Tooltip key={tech}>
-                                <TooltipTrigger asChild>
-                                  <Badge
-                                    variant="secondary"
-                                    className="inline-flex items-center gap-1.5 px-3 py-1 motion-reduce:transition-none"
-                                  >
-                                    <Icon className="h-3.5 w-3.5" />
-                                    <span className="text-xs">{tech}</span>
-                                  </Badge>
-                                </TooltipTrigger>
-                                <TooltipContent>{tech}</TooltipContent>
-                              </Tooltip>
-                            );
-                          })}
-                        </TooltipProvider>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="motion-reduce:transition-none" />
-            <CarouselNext className="motion-reduce:transition-none" />
-          </Carousel>
-        </div>
-      </div>
+            {/* Timeline Container */}
+            <div className="relative max-w-5xl mx-auto">
+              {/* Animated Vertical Line */}
+              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-muted/30 -translate-x-1/2">
+                <motion.div
+                  style={{ scaleY }}
+                  className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary via-accent to-primary origin-top shadow-[0_0_15px_rgba(var(--primary),0.5)]"
+                />
+              </div>
+
+              <div className="space-y-24">
+                {experiences.map((exp, index) => (
+                  <TimelineItem
+                    key={exp.id}
+                    experience={exp}
+                    index={index}
+                    isLast={index === experiences.length - 1}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </section>
+  );
+}
+
+function TimelineItem({ experience, index, isLast }: { experience: Experience; index: number; isLast: boolean }) {
+  const isEven = index % 2 === 0;
+
+  return (
+    <div className={cn(
+      "relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-0",
+      isEven ? "md:flex-row-reverse" : ""
+    )}>
+      {/* Timeline Bullet */}
+      <div className="absolute left-4 md:left-1/2 top-0 md:top-1/2 w-8 h-8 -translate-x-1/2 md:-translate-y-1/2 z-10 flex items-center justify-center">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="w-4 h-4 rounded-full bg-background border-2 border-primary shadow-[0_0_10px_rgba(var(--primary),0.5)] flex items-center justify-center"
+        >
+          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+        </motion.div>
+      </div>
+
+      {/* Date Tag (Desktop) */}
+      <div className={cn(
+        "hidden md:flex flex-col w-[45%] items-center",
+        isEven ? "items-end text-right pr-12" : "items-start text-left pl-12"
+      )}>
+        <motion.div
+          initial={{ opacity: 0, x: isEven ? 20 : -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="bg-muted/30 backdrop-blur-sm border border-border/50 rounded-lg px-4 py-2 flex items-center gap-3"
+        >
+          <Calendar className="w-4 h-4 text-primary" />
+          <span className="text-sm font-code font-bold text-muted-foreground whitespace-nowrap">
+            {experience.start} — {experience.end}
+          </span>
+        </motion.div>
+      </div>
+
+      {/* Experience Card */}
+      <div className="w-full md:w-[45%] pl-12 md:pl-0">
+        <motion.div
+          initial={{ opacity: 0, x: isEven ? -40 : 40, y: 20 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
+        >
+          <div className="group relative bg-card/40 backdrop-blur-md border border-border/50 p-6 md:p-8 rounded-2xl hover:border-primary/50 transition-colors duration-500 shadow-sm hover:shadow-primary/5 overflow-hidden">
+            {/* Holographic accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[80px] rounded-full pointer-events-none group-hover:bg-primary/10 transition-colors duration-500" />
+
+            <div className="flex flex-col gap-6">
+              <div className="flex items-start gap-4">
+                <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-border/40 bg-muted/20 p-2 flex items-center justify-center shrink-0 shadow-inner group-hover:border-primary/40 transition-colors duration-500">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                  <Building2 className="w-7 h-7 text-primary/80 group-hover:text-primary transition-colors" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-2xl font-black font-headline tracking-tight group-hover:text-primary transition-colors">
+                    {experience.company}
+                  </h3>
+                  <div className="flex items-center gap-2 text-primary font-code text-sm mt-1 uppercase tracking-widest font-bold">
+                    <Briefcase className="w-3.5 h-3.5" />
+                    {experience.role}
+                  </div>
+                  {/* Date (Mobile Only) */}
+                  <div className="flex md:hidden items-center gap-2 text-muted-foreground text-xs mt-2 font-code">
+                    <Calendar className="w-3 h-3" />
+                    {experience.start} — {experience.end}
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/10 rounded-full" />
+                <p className="pl-5 text-muted-foreground leading-relaxed text-base italic group-hover:not-italic transition-all duration-300">
+                  {experience.description}
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-[10px] uppercase tracking-tighter text-muted-foreground/60 font-bold">
+                  <Zap className="w-3 h-3" />
+                  Key Achievements
+                </div>
+                <ul className="space-y-3">
+                  {experience.achievements.map((ach, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * i }}
+                      className="flex items-start gap-3 text-sm text-foreground/80 group/ach"
+                    >
+                      <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5 group-hover/ach:translate-x-1 transition-transform" />
+                      <span>{ach}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-border/30">
+                {experience.technologies.map((tech) => {
+                  const Icon = techIconMap[tech] ?? CircuitBoard;
+                  return (
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="bg-muted text-[10px] font-code py-0.5 px-2 border border-transparent hover:border-primary/20 hover:bg-primary/5 hover:text-primary transition-all duration-300 flex items-center gap-1.5"
+                    >
+                      <Icon className="w-3 h-3" />
+                      {tech}
+                    </Badge>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Corner decorator */}
+            <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-primary/20 rounded-br-lg group-hover:border-primary/60 transition-colors duration-500" />
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 }

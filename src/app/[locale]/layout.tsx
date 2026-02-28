@@ -14,10 +14,21 @@ import { PreLoader } from "@/components/pre-loader";
 import { LoaderProvider } from "@/context/loader-context";
 import { ContentWrapper } from "@/components/content-wrapper";
 
-export const metadata: Metadata = {
-  title: "Luis Arteaga",
-  description: "A personal portfolio website.",
-};
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "seo" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 type Props = {
   children: ReactNode;

@@ -4,25 +4,7 @@ import { useState, useEffect, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { useLoader } from "@/context/loader-context";
 import { FileText, GitBranch } from "lucide-react";
-
-const codeLines = [
-  { text: "// Profile.tsx", indent: 0 },
-  { text: "const Profile = () => {", indent: 0 },
-  { text: "return (", indent: 1 },
-  { text: "<>", indent: 2 },
-  { text: "<Developer", indent: 3 },
-  { text: 'name={"Luis Enrique Arteaga Ruiz"}', indent: 4 },
-  { text: 'role={"Desarrollador Fullstack"}', indent: 4 },
-  {
-    text: "skills={['React','TypeScript','Nest.js']}",
-    indent: 4,
-  },
-  { text: "status={'Ready to work'}", indent: 4 },
-  { text: "/>", indent: 3 },
-  { text: "</>", indent: 2 },
-  { text: ")", indent: 1 },
-  { text: "}", indent: 0 },
-];
+import { useTranslations } from "next-intl";
 
 const highlightSyntax = (line: string): ReactNode[] => {
   const parts: ReactNode[] = [];
@@ -85,13 +67,33 @@ const highlightSyntax = (line: string): ReactNode[] => {
   return parts;
 };
 
-const CODE_TYPING_SPEED = 8;
-const TERMINAL_TYPING_SPEED = 60;
+const CODE_TYPING_SPEED = 2; // High speed
+const TERMINAL_TYPING_SPEED = 8; // High speed
 
 export function PreLoader() {
+  const t = useTranslations("preloader");
   const { isLoading, setIsLoading } = useLoader();
   const [isMounted, setIsMounted] = useState(false);
   const [isEntering, setIsEntering] = useState(true);
+
+  const codeLines = [
+    { text: "// Profile.tsx", indent: 0 },
+    { text: "const Profile = () => {", indent: 0 },
+    { text: "return (", indent: 1 },
+    { text: "<>", indent: 2 },
+    { text: "<Developer", indent: 3 },
+    { text: 'name={"Luis Enrique Arteaga Ruiz"}', indent: 4 },
+    { text: `role={"${t("role")}"}`, indent: 4 },
+    {
+      text: `skills={${t("skills")}}`,
+      indent: 4,
+    },
+    { text: `status={'${t("status")}'}`, indent: 4 },
+    { text: "/>", indent: 3 },
+    { text: "</>", indent: 2 },
+    { text: ")", indent: 1 },
+    { text: "}", indent: 0 },
+  ];
 
   const [lines, setLines] = useState<ReactNode[][]>(
     Array(codeLines.length).fill([])
@@ -120,7 +122,7 @@ export function PreLoader() {
       if (currentLineIndex >= codeLines.length) {
         const timer = setTimeout(() => {
           setShowTerminal(true);
-        }, 500);
+        }, 150); // Short pause before terminal
         return () => clearTimeout(timer);
       }
       return;
@@ -144,7 +146,7 @@ export function PreLoader() {
     }, CODE_TYPING_SPEED);
 
     return () => clearTimeout(typingTimeout);
-  }, [isLoading, currentLineIndex, currentCharIndex]);
+  }, [isLoading, currentLineIndex, currentCharIndex, codeLines]);
 
   // Terminal command typing animation
   useEffect(() => {
@@ -161,7 +163,7 @@ export function PreLoader() {
       const timeout = setTimeout(() => {
         setShowCursor(false);
         setShowBuild(true);
-      }, 500);
+      }, 150); // Short pause after command
       return () => clearTimeout(timeout);
     }
   }, [showTerminal, typedCommand]);
@@ -171,7 +173,7 @@ export function PreLoader() {
     if (showBuild) {
       const timer = setTimeout(() => {
         setBuildComplete(true);
-      }, 1000);
+      }, 300); // Fast simulated build
       return () => clearTimeout(timer);
     }
   }, [showBuild]);
@@ -180,10 +182,12 @@ export function PreLoader() {
     if (buildComplete) {
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 500);
+      }, 150); // Fast exit
       return () => clearTimeout(timer);
     }
   }, [buildComplete, setIsLoading]);
+
+
 
   if (!isMounted) return null;
 
@@ -277,8 +281,8 @@ export function PreLoader() {
                 <div className="mt-1.5 sm:mt-2 text-[#d4d4d4] text-xs sm:text-sm">
                   <p>
                     {buildComplete
-                      ? "Build complete. Launching site..."
-                      : "Building project..."}
+                      ? t("buildComplete")
+                      : t("buildInProgress")}
                   </p>
                 </div>
               )}

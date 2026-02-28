@@ -5,31 +5,119 @@
     "projects": "Proyectos",
     "contact": "Contacto"
   },
-  "HeroSection": {
-    "title-start": "Desarrollador",
+  "seo": {
+    "title": "Luis Arteaga | Desarrollador Web Full-Stack (React & Next.js, Spring Boot)",
+    "description": "Portafolio de Luis Arteaga. Desarrollo de aplicaciones web modernas, rápidas y accesibles que resuelven problemas reales y generan valor empresarial."
+  },
+  "hero": {
+    "title-start": "Ingeniero Electrónico &",
     "title-end": "",
-    "animated-word-1": "FullStack",
-    "animated-word-2": "Modernas",
-    "animated-word-3": "Creativas",
-    "animated-word-4": "Innovadoras",
-    "subtitle": "Un desarrollador apasionado construyendo aplicaciones web modernas, responsivas y amigables para el usuario.",
-    "button": "Ver mi Trabajo",
-    "button-secondary": "Contactar",
-    "badge": "Disponible para proyectos"
+    "animated-word-1": "Desarrollador Full-Stack",
+    "animated-word-2": "Arquitecto de Backend",
+    "animated-word-3": "Especialista en IA",
+    "animated-word-4": "Desarrollador de Software",
+    "subtitle": "Construyo aplicaciones web modernas, rápidas y accesibles que generan valor a tus usuarios y negocio.",
+    "ctaPrimary": "Ver proyectos",
+    "ctaSecondary": "Hablemos de tu proyecto",
+    "badge": "Disponible para nuevos retos"
   },
-  "AboutSection": {
+  "about": {
     "title": "Sobre Mí",
-    "imageAlt": "Sobre mí",
-    "paragraph1": "Soy un desarrollador de software dedicado con pasión por crear interfaces de usuario hermosas y funcionales. Con una base sólida en tecnologías web modernas, me especializo en construir aplicaciones responsivas y de alto rendimiento usando React, Next.js y TypeScript.",
-    "paragraph2": "Mi experiencia abarca el desarrollo front-end y back-end, lo que me permite construir soluciones completas desde cero. Prospero en entornos colaborativos y siempre estoy ansioso por aprender nuevas habilidades y abordar problemas desafiantes. Cuando no estoy programando, disfruto explorando nuevas tecnologías y contribuyendo a proyectos de código abierto."
+    "imageAlt": "Luis Arteaga - Sobre mí",
+    "intro": "Soy un desarrollador de software enfocado en construir soluciones de alto rendimiento. Mi experiencia técnica se combina estrechamente con una visión de producto: no solo ejecuto tareas funcionales, sino que analizo la manera en la que cada desarrollo resuelve un desafío concreto para el usuario o la empresa. Soy altamente colaborativo y priorizo la comunicación ágil, la escalabilidad del código y la entrega constante de valor.",
+    "skillsTitle": "Tecnologías y Enfoque",
+    "skills": {
+      "frontend": "React & Next.js: Interfaces dinámicas y eficientes, aprovechando SSR/SSG para maximizar el SEO y la retención del usuario.",
+      "typescript": "TypeScript: Código robusto, estrictamente tipado, previniendo errores críticos y garantizando un mantenimiento ágil.",
+      "backend": "Spring Boot & NestJS: Arquitecturas backend robustas y escalables, gestionando lógica de negocio compleja y servicios distribuidos.",
+      "database": "Bases de Datos & ORM: Gestión experta de persistencia con PostgreSQL, MongoDB y Prisma para garantizar integridad de datos.",
+      "devops": "DevOps & CI/CD: Automatización de despliegues y calidad de código mediante GitHub Actions, Jenkins, SonarQube y Fortify.",
+      "testing": "Testing & Calidad: Garantía de software mediante pruebas unitarias exhaustivas utilizando Jest, Mockito y mejores prácticas de QA.",
+      "uiux": "UI/UX & Accesibilidad: Implementación de diseños centrados en las personas, garantizando accesibilidad y un gran desempeño en pantallas móviles.",
+      "ai": "Inteligencia Artificial: Creación de agentes autónomos, ingeniería de prompts avanzada y automatización de flujos de trabajo con modelos de lenguaje (LLMs)."
+    }
   },
-  "ExperienceSection": {
+  "experience": {
     "title": "Experiencia Laboral",
-    "subtitle": "Una línea de tiempo interactiva que destaca responsabilidades, logros y tecnologías.",
-    "carouselAria": "Carrusel de experiencias laborales"
+    "subtitle": "Un resumen de mis roles y el impacto generado a través de mis desarrollos.",
+    "carouselAria": "Carrusel de experiencias laborales",
+    "roles": {
+      "techNova": {
+        "company": "TechNova",
+        "role": "Senior Full-Stack Developer",
+        "period": "01/2022 — Presente",
+        "description": "Liderazgo técnico en la arquitectura y despliegue de la interfaz principal de producto para una plataforma SaaS escalable.",
+        "achievements": {
+          "1": "Reduje el Tiempo Hasta ser Interactivo (TTI) en un 35% utilizando técnicas de code splitting y caché.",
+          "2": "Desarrollé flujos CI/CD acelerando el tiempo de despliegue sin interrumpir el servicio.",
+          "3": "Lideré iniciativas de accesibilidad asegurando certificaciones WCAG 2.1 AA."
+        },
+        "technologies": "React, Next.js, TypeScript, Spring Boot, PostgreSQL"
+      },
+      "dataForge": {
+        "company": "DataForge",
+        "role": "Frontend Engineer",
+        "period": "06/2020 — 12/2021",
+        "description": "Desarrollo de interfaces analíticas robustas para herramientas de visualización de big data e inteligencia de negocio.",
+        "achievements": {
+          "1": "Arquitecté un sistema de componentes modular, reduciendo el trabajo duplicado en vistas en un 40%.",
+          "2": "Mejoré las métricas de usabilidad centralizando la base de estilos de la aplicación entera utlizando Tailwind CSS.",
+          "3": "Elevé la retención de usuarios a través de la refactorización de flujos analíticos."
+        },
+        "technologies": "React, TypeScript, GraphQL, Apollo, Prisma"
+      },
+      "cloudWorks": {
+        "company": "CloudWorks",
+        "role": "Full-Stack Developer",
+        "period": "02/2018 — 05/2020",
+        "description": "Desarrollo del clúster de APIs transaccionales e hidratación de componentes con frameworks progresivos.",
+        "achievements": {
+          "1": "Construí APIs eficientes capaces de escalar y servir de forma segura los recursos empresariales.",
+          "2": "Estructuré la migración a Server-Side Rendering (SSR) incrementando notablemente el tráfico orgánico.",
+          "3": "Mejoré la observabilidad con métricas y trazas."
+        },
+        "technologies": "Vue.js, Node.js, Firebase, PostgreSQL"
+      }
+    }
   },
-  "ProjectsSection": {
-    "viewProject": "Ver Proyecto"
+  "projects": {
+    "title": "Proyectos Destacados",
+    "subtitle": "Aplicaciones y portales reales que abordan desafíos de mercado.",
+    "projectTarget": "Ver proyecto",
+    "list": {
+      "project1": {
+        "title": "Habeas Data - Cesantías",
+        "problem": "Saturación de canales por captura manual de consentimientos legales de tratamiento de datos.",
+        "technologies": "React, Spring Boot, PostgreSQL, SonarQube",
+        "impact": "Automatización del flujo normativo bajo estándares legales, reduciendo la carga operativa en un 60%.",
+        "url": "https://servicios.porvenir.com.co/cdc/front/cesantias/habeas-data/home",
+        "cta": "Explorar Portal"
+      },
+      "project2": {
+        "title": "Habeas Data - Pensiones Voluntarias",
+        "problem": "Necesidad de parametrizar consentimientos legales específicos según el producto de ahorro.",
+        "technologies": "React, Spring Boot, Jenkins, Mockito",
+        "impact": "Implementación de lógica dinámica para múltiples productos usando un núcleo técnico compartido.",
+        "url": "https://servicios.porvenir.com.co/cdc/front/habeasdata/habeas-data-pi",
+        "cta": "Ver Detalle"
+      },
+      "project3": {
+        "title": "Validación de Viabilidad - Cesantías",
+        "problem": "Fricción en el proceso inicial de afiliación y falta de autonomía del usuario.",
+        "technologies": "Next.js, Spring Boot, GraphQL, Fortify",
+        "impact": "Digitalización del 100% del flujo de entrada, permitiendo validar viabilidad en menos de un minuto.",
+        "url": "https://servicios.porvenir.com.co/cdc/front/cesantias/autogestionado/validacion-viabilidad",
+        "cta": "Probar Flujo"
+      },
+      "project4": {
+        "title": "Afiliación Pensión Obligatoria",
+        "problem": "Baja conversión en procesos de traslado y falta de comunicación de beneficios adicionales.",
+        "technologies": "React, Spring Boot, GitHub Actions, Jest",
+        "impact": "Optimización del funnel de conversión con firma electrónica e integración de beneficios corporativos.",
+        "url": "https://servicios.porvenir.com.co/evd-aut-afiliacion-traslado-pension/validacion-identidad",
+        "cta": "Visitar Plataforma"
+      }
+    }
   },
   "hobbies": {
     "title": "Hobbies",
@@ -41,15 +129,22 @@
       "Entrenamiento físico y actividades al aire libre"
     ]
   },
-  "ContactSection": {
-    "title": "Ponte en Contacto",
-    "subtitle": "¿Tienes alguna pregunta o quieres que trabajemos juntos? Rellena el siguiente formulario o envíame un correo electrónico directamente.",
-    "namePlaceholder": "Tu Nombre",
-    "emailPlaceholder": "Tu Correo Electrónico",
-    "messagePlaceholder": "Tu Mensaje",
-    "submitButton": "Enviar Mensaje",
+  "contact": {
+    "title": "Impulsemos tu Próximo Proyecto",
+    "subtitle": "¿Buscas un desarrollador que transforme requerimientos complejos en aplicaciones ágiles, seguras y eficientes? Escríbeme y exploremos cómo puedo aportar valor a tu equipo.",
+    "namePlaceholder": "Tu nombre o empresa",
+    "emailPlaceholder": "Tu correo electrónico",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+    "submitButton": "Enviar mensaje",
     "submittingButton": "Enviando...",
-    "orDirectly": "O contáctame directamente:",
+    "orDirectly": "O envíame un correo directamente a:",
     "emailAddress": "tu.email@example.com"
+  },
+  "preloader": {
+    "role": "Desarrollador Fullstack (Backend focus)",
+    "skills": "['React', 'Spring Boot', 'Next.js', 'AI Agents']",
+    "status": "Listo para trabajar",
+    "buildInProgress": "Construyendo proyecto...",
+    "buildComplete": "Build completo. Lanzando sitio..."
   }
 }

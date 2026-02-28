@@ -1,19 +1,24 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { useTranslations } from 'next-intl';
 
 export type Project = {
   title: string;
   description: string;
   tags: string[];
-  image: ImagePlaceholder;
+  image: {
+    imageUrl: string;
+    imageHint?: string;
+    description?: string;
+  };
   externalUrl?: string;
+  impact?: string;
+  ctaLabel?: string;
 };
 
 export function ProjectCard({ project }: { project: Project }) {
-  const t = useTranslations("ProjectsSection");
+  const t = useTranslations("projects");
 
   const isValidExternalUrl =
     typeof project.externalUrl === "string" &&
@@ -36,6 +41,11 @@ export function ProjectCard({ project }: { project: Project }) {
       <CardContent className="p-4 md:p-5 lg:p-6">
         <CardTitle className="text-xl font-bold mb-2 font-headline">{project.title}</CardTitle>
         <p className="text-muted-foreground text-sm mb-4 min-h-[3rem]">{project.description}</p>
+        {project.impact && (
+          <p className="text-foreground/90 text-sm mb-4 font-medium italic">
+            → {project.impact}
+          </p>
+        )}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag) => (
             <Badge key={tag} variant="secondary">{tag}</Badge>
@@ -49,7 +59,7 @@ export function ProjectCard({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="inline-block text-sm font-medium text-primary underline-offset-4 hover:underline"
           >
-            {t("viewProject")}
+            {project.ctaLabel || t("projectTarget")}
           </a>
         )}
       </CardContent>

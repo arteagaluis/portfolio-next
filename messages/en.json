@@ -5,31 +5,119 @@
     "projects": "Projects",
     "contact": "Contact"
   },
-  "HeroSection": {
-    "title-start": "",
-    "title-end": "developer",
-    "animated-word-1": "FullStack",
-    "animated-word-2": "Modern",
-    "animated-word-3": "Creative",
-    "animated-word-4": "Innovative",
-    "subtitle": "A passionate developer building modern, responsive, and user-friendly web applications.",
-    "button": "View My Work",
-    "button-secondary": "Get in Touch",
-    "badge": "Available for projects"
+  "seo": {
+    "title": "Luis Arteaga | Full-Stack Web Developer (React & Next.js, Spring Boot)",
+    "description": "Portfolio of Luis Arteaga. Developing modern, fast, and accessible web applications that solve real problems and generate business value."
   },
-  "AboutSection": {
+  "hero": {
+    "title-start": "Electronic Engineer &",
+    "title-end": "",
+    "animated-word-1": "Full-Stack Developer",
+    "animated-word-2": "Backend Architect",
+    "animated-word-3": "AI Specialist",
+    "animated-word-4": "Software Engineer",
+    "subtitle": "I build modern, fast, and accessible web applications that bring value to your users and business.",
+    "ctaPrimary": "View my projects",
+    "ctaSecondary": "Let's talk",
+    "badge": "Available for new challenges"
+  },
+  "about": {
     "title": "About Me",
-    "imageAlt": "About me",
-    "paragraph1": "I am a dedicated software developer with a passion for creating beautiful and functional user interfaces. With a strong foundation in modern web technologies, I specialize in building responsive and performant applications using React, Next.js, and TypeScript.",
-    "paragraph2": "My experience spans across front-end and back-end development, allowing me to build comprehensive solutions from scratch. I thrive in collaborative environments and am always eager to learn new skills and tackle challenging problems. When I'm not coding, I enjoy exploring new technologies and contributing to open-source projects."
+    "imageAlt": "Luis Arteaga - About me",
+    "intro": "I am a software developer focused on building high-performance solutions. My technical expertise is closely combined with a product vision: I don't just execute functional tasks, but I analyze how each development solves a specific challenge for the user or the company. I am highly collaborative and prioritize agile communication, code scalability, and consistent value delivery.",
+    "skillsTitle": "Technologies and Approach",
+    "skills": {
+      "frontend": "React & Next.js: Dynamic and efficient interfaces, leveraging SSR/SSG to maximize SEO and user retention.",
+      "typescript": "TypeScript: Robust, strictly typed code, preventing critical errors and ensuring agile maintenance.",
+      "backend": "Spring Boot & NestJS: Robust and scalable backend architectures, managing complex business logic and distributed services.",
+      "database": "Databases & ORM: Expert persistence management with PostgreSQL, MongoDB, and Prisma to ensure data integrity.",
+      "devops": "DevOps & CI/CD: Automated deployments and code quality using GitHub Actions, Jenkins, SonarQube, and Fortify.",
+      "testing": "Testing & Quality: Software assurance through exhaustive unit testing using Jest, Mockito, and QA best practices.",
+      "uiux": "UI/UX & Accessibility: Implementation of people-centric designs, ensuring accessibility and great performance on mobile screens.",
+      "ai": "Artificial Intelligence: Creation of autonomous agents, advanced prompt engineering, and workflow automation using Large Language Models (LLMs)."
+    }
   },
-  "ExperienceSection": {
+  "experience": {
     "title": "Work Experience",
-    "subtitle": "An interactive timeline highlighting responsibilities, achievements, and technologies.",
-    "carouselAria": "Work experience carousel"
+    "subtitle": "A summary of my roles and the impact generated through my developments.",
+    "carouselAria": "Work experience carousel",
+    "roles": {
+      "techNova": {
+        "company": "TechNova",
+        "role": "Senior Full-Stack Developer",
+        "period": "01/2022 — Present",
+        "description": "Technical leadership in the architecture and deployment of the main product interface for a scalable SaaS platform.",
+        "achievements": {
+          "1": "Reduced Time to Interactive (TTI) by 35% using code splitting and caching techniques.",
+          "2": "Developed CI/CD pipelines accelerating deployment time without service disruption.",
+          "3": "Led accessibility initiatives securing WCAG 2.1 AA certifications."
+        },
+        "technologies": "React, Next.js, TypeScript, Spring Boot, PostgreSQL"
+      },
+      "dataForge": {
+        "company": "DataForge",
+        "role": "Frontend Engineer",
+        "period": "06/2020 — 12/2021",
+        "description": "Development of robust analytic interfaces for big data visualization and business intelligence tools.",
+        "achievements": {
+          "1": "Architected a modular component system, reducing duplicate work in views by 40%.",
+          "2": "Improved usability metrics by centralizing the application's style base using Tailwind CSS.",
+          "3": "Increased user retention through the refactoring of frontend analytical flows."
+        },
+        "technologies": "React, TypeScript, GraphQL, Apollo, Prisma"
+      },
+      "cloudWorks": {
+        "company": "CloudWorks",
+        "role": "Full-Stack Developer",
+        "period": "02/2018 — 05/2020",
+        "description": "Development of a transactional APIs cluster and component hydration with progressive frameworks.",
+        "achievements": {
+          "1": "Built efficient APIs capable of securely scaling and serving enterprise resources.",
+          "2": "Structured the migration to Server-Side Rendering (SSR) notably increasing organic traffic.",
+          "3": "Improved observability with metrics and traces."
+        },
+        "technologies": "Vue.js, Node.js, Firebase, PostgreSQL"
+      }
+    }
   },
-  "ProjectsSection": {
-    "viewProject": "View Project"
+  "projects": {
+    "title": "Selected Projects",
+    "subtitle": "Real applications and portals addressing market challenges.",
+    "projectTarget": "View Project",
+    "list": {
+      "project1": {
+        "title": "Habeas Data - Severance Pay",
+        "problem": "Channel saturation due to manual capture of legal data processing consents.",
+        "technologies": "React, Spring Boot, PostgreSQL, SonarQube",
+        "impact": "Automation of the regulatory flow under legal standards, reducing operational load by 60%.",
+        "url": "https://servicios.porvenir.com.co/cdc/front/cesantias/habeas-data/home",
+        "cta": "Explore Portal"
+      },
+      "project2": {
+        "title": "Habeas Data - Voluntary Pensions",
+        "problem": "Need to parameterize specific legal consents according to the savings product.",
+        "technologies": "React, Spring Boot, Jenkins, Mockito",
+        "impact": "Implementation of dynamic logic for multiple products using a shared technical core.",
+        "url": "https://servicios.porvenir.com.co/cdc/front/habeasdata/habeas-data-pi",
+        "cta": "See Details"
+      },
+      "project3": {
+        "title": "Eligibility Validation - Severance Pay",
+        "problem": "Friction in the initial affiliation process and lack of user autonomy.",
+        "technologies": "Next.js, Spring Boot, GraphQL, Fortify",
+        "impact": "100% digitization of the entry flow, allowing for eligibility validation in under a minute.",
+        "url": "https://servicios.porvenir.com.co/cdc/front/cesantias/autogestionado/validacion-viabilidad",
+        "cta": "Try Workflow"
+      },
+      "project4": {
+        "title": "Mandatory Pension Affiliation",
+        "problem": "Low conversion in transfer processes and failure to communicate additional benefits.",
+        "technologies": "React, Spring Boot, GitHub Actions, Jest",
+        "impact": "Conversion funnel optimization with electronic signature and corporate benefits integration.",
+        "url": "https://servicios.porvenir.com.co/evd-aut-afiliacion-traslado-pension/validacion-identidad",
+        "cta": "Visit Platform"
+      }
+    }
   },
   "hobbies": {
     "title": "Hobbies",
@@ -41,15 +129,22 @@
       "Fitness and outdoor activities"
     ]
   },
-  "ContactSection": {
-    "title": "Get in Touch",
-    "subtitle": "Have a question or want to work together? Fill out the form below or email me directly.",
-    "namePlaceholder": "Your Name",
+  "contact": {
+    "title": "Let's Boost Your Next Project",
+    "subtitle": "Looking for a developer to transform complex requirements into agile, secure, and efficient applications? Let's explore how I can bring value to your team.",
+    "namePlaceholder": "Your Name or Company",
     "emailPlaceholder": "Your Email",
-    "messagePlaceholder": "Your Message",
+    "messagePlaceholder": "Tell me about your project...",
     "submitButton": "Send Message",
     "submittingButton": "Sending...",
     "orDirectly": "Or reach out directly:",
-    "emailAddress": "your.email@example.com"
+    "emailAddress": "tu.email@example.com"
+  },
+  "preloader": {
+    "role": "Fullstack Developer (Backend focus)",
+    "skills": "['React', 'Spring Boot', 'Next.js', 'AI Agents']",
+    "status": "Ready to work",
+    "buildInProgress": "Building project...",
+    "buildComplete": "Build complete. Launching site..."
   }
 }

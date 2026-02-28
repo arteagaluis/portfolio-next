@@ -18,8 +18,8 @@ export default function HobbiesSection() {
       id="hobbies"
       className="w-full py-12 md:py-24 lg:py-32 flex justify-center"
     >
-      <div className="container px-4 md:px-6 lg:px-8">
-        <div className="space-y-8 max-w-5xl w-full">
+      <div className="container px-4 md:px-6 lg:px-8 mx-auto">
+        <div className="space-y-8 max-w-5xl w-full mx-auto">
           <div className="space-y-2 text-center lg:text-left">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">
               {t("title")}
@@ -50,10 +50,9 @@ export default function HobbiesSection() {
                     border-border/60
                     hover:border-primary/30 hover:shadow-md hover:-translate-y-1
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary
-                    ${
-                      isActive
-                        ? "border-primary/40 shadow-md -translate-y-1"
-                        : ""
+                    ${isActive
+                      ? "border-primary/40 shadow-md -translate-y-1"
+                      : ""
                     }`}
                 >
                   <div className="transition-all duration-300 ease-in-out">

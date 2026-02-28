@@ -30,7 +30,7 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export function ContactSection() {
-  const t = useTranslations("ContactSection");
+  const t = useTranslations("contact");
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({

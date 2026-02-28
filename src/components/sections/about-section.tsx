@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function AboutSection() {
-  const t = useTranslations("AboutSection");
+  const t = useTranslations("about");
   return (
     <section
       id="about"
@@ -24,11 +24,20 @@ export function AboutSection() {
               {t("title")}
             </h2>
             <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-              {t("paragraph1")}
+              {t("intro")}
             </p>
-            <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-              {t("paragraph2")}
-            </p>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold mb-4 text-foreground/90">{t("skillsTitle")}</h3>
+              <ul className="space-y-3">
+                {["frontend", "typescript", "backend", "database", "devops", "testing", "uiux", "ai"].map((skillKey) => (
+                  <li key={skillKey} className="flex gap-3 text-muted-foreground md:text-base/relaxed">
+                    <span className="mt-1 flex-shrink-0 text-primary">•</span>
+                    <span>{t(`skills.${skillKey}`)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
