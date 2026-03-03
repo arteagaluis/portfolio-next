@@ -28,6 +28,8 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
+    authors: [{ name: "Luis Arteaga", url: "https://github.com/arteagaluis" }],
+    creator: "Luis Arteaga",
   };
 }
 

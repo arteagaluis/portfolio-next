@@ -140,7 +140,17 @@
     "submitButton": "Start Consultation",
     "submittingButton": "Sending...",
     "orDirectly": "Or reach out directly:",
-    "emailAddress": "tu.email@example.com"
+    "emailAddress": "arteagaluis123@gmail.com",
+    "errors": {
+      "requiredName": "Name is required (minimum 2 characters)",
+      "requiredEmail": "Email is required",
+      "invalidEmail": "Invalid email address",
+      "requiredMessage": "Message must be at least 10 characters"
+    },
+    "successTitle": "Message Sent!",
+    "successDescription": "Thank you for your message! I'll get back to you soon.",
+    "errorTitle": "Oops! Something went wrong.",
+    "errorDescription": "An unexpected error occurred while sending the form."
   },
   "tech": {
     "title": "Tech Stack",

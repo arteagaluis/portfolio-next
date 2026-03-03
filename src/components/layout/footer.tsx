@@ -1,11 +1,10 @@
 "use client";
 
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Loader2, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { useLocale } from "next-intl";
 import { useState } from "react";
-import { Loader2, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export function Footer() {
@@ -20,55 +19,55 @@ export function Footer() {
           <div className="flex items-center gap-2 sm:gap-4">
             <CVDownloadButton />
 
-            <div className="flex gap-1">
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://github.com"
-                  onClick={() => trackEvent({
-                    action: 'contact_click',
-                    category: 'Engagement',
-                    label: 'github',
-                    params: { method: 'github' }
-                  })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://linkedin.com"
-                  onClick={() => trackEvent({
-                    action: 'contact_click',
-                    category: 'Engagement',
-                    label: 'linkedin',
-                    params: { method: 'linkedin' }
-                  })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <a
-                  href="https://twitter.com"
-                  onClick={() => trackEvent({
-                    action: 'contact_click',
-                    category: 'Engagement',
-                    label: 'twitter',
-                    params: { method: 'twitter' }
-                  })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-5 w-5" />
-                </a>
-              </Button>
+            <div className="flex items-center gap-4">
+              <div className="flex gap-1">
+                <Button variant="ghost" size="icon" asChild title="GitHub">
+                  <a
+                    href="https://github.com/arteagaluis"
+                    onClick={() => trackEvent({
+                      action: 'contact_click',
+                      category: 'Engagement',
+                      label: 'github',
+                      params: { method: 'github' }
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button variant="ghost" size="icon" asChild title="LinkedIn">
+                  <a
+                    href="https://www.linkedin.com/in/arteagaluis/"
+                    onClick={() => trackEvent({
+                      action: 'contact_click',
+                      category: 'Engagement',
+                      label: 'linkedin',
+                      params: { method: 'linkedin' }
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                </Button>
+                <Button variant="ghost" size="icon" asChild title="Email">
+                  <a
+                    href="mailto:arteagaluis123@gmail.com"
+                    onClick={() => trackEvent({
+                      action: 'contact_click',
+                      category: 'Engagement',
+                      label: 'email_footer',
+                      params: { method: 'email' }
+                    })}
+                    aria-label="Email"
+                  >
+                    <Mail className="h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

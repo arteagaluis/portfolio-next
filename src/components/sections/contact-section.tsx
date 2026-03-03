@@ -3,7 +3,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { submitContactForm } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,19 +19,18 @@ import {
 import { useTranslations } from "next-intl";
 import { trackEvent } from "@/lib/analytics";
 
-const contactSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Invalid email address." }),
-  message: z
-    .string()
-    .min(10, { message: "Message must be at least 10 characters." }),
-});
-
-type ContactFormValues = z.infer<typeof contactSchema>;
-
 export function ContactSection() {
   const t = useTranslations("contact");
   const { toast } = useToast();
+
+  const contactSchema = z.object({
+    name: z.string().min(2, { message: t("errors.requiredName") }),
+    email: z.string().email({ message: t("errors.invalidEmail") }),
+    message: z.string().min(10, { message: t("errors.requiredMessage") }),
+    honeypot: z.string().optional(),
+  });
+
+  type ContactFormValues = z.infer<typeof contactSchema>;
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -40,55 +38,46 @@ export function ContactSection() {
       name: "",
       email: "",
       message: "",
+      honeypot: "",
     },
   });
 
   const { isSubmitting } = form.formState;
 
   async function onSubmit(data: ContactFormValues) {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("message", data.message);
-
-    const result = await submitContactForm(null, formData);
-
-    if (result.success) {
-      trackEvent({
-        action: 'contact_click',
-        category: 'Conversion',
-        label: 'contact_form_success',
-        params: { method: 'form' }
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for your message! I'll get back to you soon.",
-      });
-      form.reset();
-    } else {
+
+      const result = await response.json();
+
+      if (result.success) {
+        trackEvent({
+          action: "contact_click",
+          category: "Conversion",
+          label: "contact_form_success",
+          params: { method: "form" },
+        });
+        toast({
+          title: t("successTitle"),
+          description: t("successDescription"),
+        });
+        form.reset();
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
+    } catch (error: any) {
+      console.error("Submission error:", error);
       toast({
         variant: "destructive",
-        title: "Oops! Something went wrong.",
-        description: result.message || "An unexpected error occurred.",
+        title: t("errorTitle"),
+        description: t("errorDescription"),
       });
-
-      if (result.errors) {
-        if (result.errors.name)
-          form.setError("name", {
-            type: "server",
-            message: result.errors.name[0],
-          });
-        if (result.errors.email)
-          form.setError("email", {
-            type: "server",
-            message: result.errors.email[0],
-          });
-        if (result.errors.message)
-          form.setError("message", {
-            type: "server",
-            message: result.errors.message[0],
-          });
-      }
     }
   }
 
@@ -109,6 +98,22 @@ export function ContactSection() {
         <div className="mx-auto w-full max-w-md space-y-8">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              {/* Honeypot field (hidden from users) */}
+              <div className="absolute opacity-0 -z-50 h-0 w-0 overflow-hidden">
+                <FormField
+                  control={form.control}
+                  name="honeypot"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Leave this field empty</FormLabel>
+                      <FormControl>
+                        <Input tabIndex={-1} {...field} />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </div>
+
               <FormField
                 control={form.control}
                 name="name"
