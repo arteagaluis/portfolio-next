@@ -1,15 +1,15 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import { ContactSection } from "@/components/sections/contact-section"
 
-jest.mock("@/app/actions", () => ({
-  submitContactForm: jest.fn(),
-}))
-
-import { submitContactForm } from "@/app/actions"
+global.fetch = jest.fn() as jest.Mock
 
 describe("ContactSection deep coverage", () => {
   beforeEach(() => {
     jest.clearAllMocks()
+      ; (global.fetch as jest.Mock).mockResolvedValue({
+        ok: true,
+        json: () => Promise.resolve({ success: true, message: "ok" }),
+      })
   })
 
   it("renders form fields and texts", () => {
@@ -22,11 +22,6 @@ describe("ContactSection deep coverage", () => {
   })
 
   it("handles successful submit", async () => {
-    ;(submitContactForm as jest.Mock).mockResolvedValue({
-      success: true,
-      message: "ok",
-    })
-
     render(<ContactSection />)
 
     fireEvent.change(screen.getByPlaceholderText("namePlaceholder"), {
@@ -39,22 +34,26 @@ describe("ContactSection deep coverage", () => {
       target: { value: "This is a valid message." },
     })
 
-    fireEvent.click(screen.getByRole("button"))
+    fireEvent.click(screen.getByRole("button", { name: "submitButton" }))
 
     await waitFor(() =>
-      expect(submitContactForm).toHaveBeenCalled()
+      expect(global.fetch).toHaveBeenCalledWith("/api/contact", expect.objectContaining({
+        method: "POST",
+      }))
     )
   })
 
-  it("handles failed submit with server errors", async () => {
-    ;(submitContactForm as jest.Mock).mockResolvedValue({
-      success: false,
-      message: "Server error",
-      errors: {
-        name: ["Name error"],
-        email: ["Email error"],
-        message: ["Message error"],
-      },
+  it("handles failed submit with field errors", async () => {
+    ; (global.fetch as jest.Mock).mockResolvedValue({
+      ok: false,
+      json: () =>
+        Promise.resolve({
+          success: false,
+          message: "Validation failed",
+          errors: {
+            name: ["Name error"],
+          },
+        }),
     })
 
     render(<ContactSection />)
@@ -69,10 +68,25 @@ describe("ContactSection deep coverage", () => {
       target: { value: "This is a valid message." },
     })
 
-    fireEvent.click(screen.getByRole("button"))
+    fireEvent.click(screen.getByRole("button", { name: "submitButton" }))
 
-    await waitFor(() =>
-      expect(submitContactForm).toHaveBeenCalled()
-    )
+    await waitFor(() => expect(screen.getByText("Name error")).toBeInTheDocument())
+  })
+
+  it("handles failed submit with generic error", async () => {
+    ; (global.fetch as jest.Mock).mockResolvedValue({
+      ok: false,
+      json: () => Promise.resolve({ success: false, message: "Generic error" }),
+    })
+
+    render(<ContactSection />)
+
+    fireEvent.change(screen.getByPlaceholderText("namePlaceholder"), { target: { value: "John Doe" } })
+    fireEvent.change(screen.getByPlaceholderText("emailPlaceholder"), { target: { value: "john@example.com" } })
+    fireEvent.change(screen.getByPlaceholderText("messagePlaceholder"), { target: { value: "This is a valid message." } })
+
+    fireEvent.click(screen.getByRole("button", { name: "submitButton" }))
+
+    await waitFor(() => expect(global.fetch).toHaveBeenCalled())
   })
 })

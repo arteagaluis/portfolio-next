@@ -8,13 +8,13 @@ jest.mock("next-intl", () => ({
 describe("ProjectsSection", () => {
   it("renders without crashing", () => {
     render(<ProjectsSection />);
-    expect(screen.getByRole("heading")).toBeInTheDocument();
+    expect(screen.getAllByRole("heading").length).toBeGreaterThan(0);
   });
 
   it("renders project cards if dataset exists", () => {
     render(<ProjectsSection />);
-    const links = screen.getAllByRole("link");
-    expect(links.length).toBeGreaterThanOrEqual(0);
+    // Initial content check
+    expect(screen.getByText("title")).toBeInTheDocument();
   });
 
   it("does not break with missing optional props", () => {

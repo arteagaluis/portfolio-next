@@ -11,6 +11,7 @@ describe("Footer Component", () => {
     render(<Footer />);
     expect(screen.getByLabelText("GitHub")).toBeInTheDocument();
     expect(screen.getByLabelText("LinkedIn")).toBeInTheDocument();
-    expect(screen.getByLabelText("Twitter")).toBeInTheDocument();
+    expect(screen.getByLabelText("Email")).toBeInTheDocument();
+    expect(screen.queryByLabelText("Twitter")).not.toBeInTheDocument();
   });
 });

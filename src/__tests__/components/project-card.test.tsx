@@ -6,10 +6,9 @@ const baseProject: Project = {
   description: "Test Description",
   tags: ["React", "Next.js"],
   image: {
-    id: "test",
-    description: "test description",
     imageUrl: "/test.jpg",
     imageHint: "test image",
+    description: "test description",
   },
 };
 
@@ -69,6 +68,6 @@ describe("ProjectCard - External URL behavior", () => {
     render(<ProjectCard project={project} />);
 
     // next-intl mock returns the key itself
-    expect(screen.getByText("viewProject")).toBeInTheDocument();
+    expect(screen.getByText("projectTarget")).toBeInTheDocument();
   });
 });

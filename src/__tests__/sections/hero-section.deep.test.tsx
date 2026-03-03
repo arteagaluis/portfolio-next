@@ -9,24 +9,15 @@ describe("HeroSection deep coverage", () => {
     expect(screen.getByText("title-start")).toBeInTheDocument()
     expect(screen.getByText("title-end")).toBeInTheDocument()
     expect(screen.getByText("subtitle")).toBeInTheDocument()
-    expect(screen.getByText("button")).toBeInTheDocument()
-    expect(screen.getByText("button-secondary")).toBeInTheDocument()
-  })
-
-  it("renders tech stack items", () => {
-    render(<HeroSection />)
-
-    expect(screen.getByText("React")).toBeInTheDocument()
-    expect(screen.getByText("Next.js")).toBeInTheDocument()
-    expect(screen.getByText("TypeScript")).toBeInTheDocument()
-    expect(screen.getByText("Node.js")).toBeInTheDocument()
+    expect(screen.getByText("ctaPrimary")).toBeInTheDocument()
+    expect(screen.getByText("ctaSecondary")).toBeInTheDocument()
   })
 
   it("renders anchor links correctly", () => {
     render(<HeroSection />)
 
-    const projectsLink = screen.getByRole("link", { name: "button" })
-    const contactLink = screen.getByRole("link", { name: "button-secondary" })
+    const projectsLink = screen.getByRole("link", { name: "ctaPrimary" })
+    const contactLink = screen.getByRole("link", { name: "ctaSecondary" })
 
     expect(projectsLink).toHaveAttribute("href", "#projects")
     expect(contactLink).toHaveAttribute("href", "#contact")

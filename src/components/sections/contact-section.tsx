@@ -69,6 +69,19 @@ export function ContactSection() {
         });
         form.reset();
       } else {
+        // Handle validation errors from API
+        if (result.errors) {
+          Object.entries(result.errors).forEach(([field, messages]) => {
+            const fieldName = field as keyof ContactFormValues;
+            const errorMessages = messages as string[];
+            if (errorMessages.length > 0) {
+              form.setError(fieldName, {
+                type: "server",
+                message: errorMessages[0],
+              });
+            }
+          });
+        }
         throw new Error(result.message || "Failed to send message");
       }
     } catch (error: any) {
