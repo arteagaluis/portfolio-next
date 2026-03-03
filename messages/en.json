@@ -1,9 +1,10 @@
 {
   "Header": {
-    "about": "About",
-    "experience": "Experience",
-    "projects": "Projects",
-    "contact": "Contact"
+    "about": "Architecture",
+    "strategy": "Strategy",
+    "experience": "Trajectory",
+    "projects": "Solutions",
+    "contact": "Consultation"
   },
   "seo": {
     "title": "Luis Arteaga | Full-Stack Web Developer (React & Next.js, Spring Boot)",
@@ -12,71 +13,72 @@
   "hero": {
     "title-start": "Electronic Engineer &",
     "title-end": "",
-    "animated-word-1": "Full-Stack Developer",
-    "animated-word-2": "Backend Architect",
-    "animated-word-3": "AI Specialist",
+    "animated-word-1": "Senior Full-Stack Developer",
+    "animated-word-2": "Frontend Architect",
+    "animated-word-3": "Microfrontends Specialist",
     "animated-word-4": "Software Engineer",
-    "subtitle": "I build modern, fast, and accessible web applications that bring value to your users and business.",
-    "ctaPrimary": "View my projects",
-    "ctaSecondary": "Let's talk",
-    "badge": "Available for new challenges"
+    "subtitle": "Specialized in scalable architectures, microfrontends, and high-performance solutions that transform business vision into impactful technological products.",
+    "ctaPrimary": "Explore Solutions",
+    "ctaSecondary": "Let's Talk Architecture",
+    "badge": "Leading Digital Transformation"
   },
   "about": {
-    "title": "About Me",
-    "imageAlt": "Luis Arteaga - About me",
-    "intro": "I am a software developer focused on building high-performance solutions. My technical expertise is closely combined with a product vision: I don't just execute functional tasks, but I analyze how each development solves a specific challenge for the user or the company. I am highly collaborative and prioritize agile communication, code scalability, and consistent value delivery.",
-    "skillsTitle": "Technologies and Approach",
+    "title": "Career and Strategic Approach",
+    "imageAlt": "Luis Arteaga - Senior Frontend Engineer",
+    "intro": "I am an Electronic Engineer and Frontend Developer with experience building scalable applications in corporate environments. My focus goes beyond implementing interfaces — I aim to understand the full architecture, make sound technical decisions, and ensure every solution remains maintainable over time. I work with React and TypeScript in microfrontend-based architectures, applying best practices, automated testing, and CI/CD processes. My background in IoT and backend development allows me to approach products with a holistic perspective, from service integration to the final user experience.",
+    "skillsTitle": "Strategic Pillars",
     "skills": {
-      "frontend": "React & Next.js: Dynamic and efficient interfaces, leveraging SSR/SSG to maximize SEO and user retention.",
-      "typescript": "TypeScript: Robust, strictly typed code, preventing critical errors and ensuring agile maintenance.",
-      "backend": "Spring Boot & NestJS: Robust and scalable backend architectures, managing complex business logic and distributed services.",
-      "database": "Databases & ORM: Expert persistence management with PostgreSQL, MongoDB, and Prisma to ensure data integrity.",
-      "devops": "DevOps & CI/CD: Automated deployments and code quality using GitHub Actions, Jenkins, SonarQube, and Fortify.",
-      "testing": "Testing & Quality: Software assurance through exhaustive unit testing using Jest, Mockito, and QA best practices.",
-      "uiux": "UI/UX & Accessibility: Implementation of people-centric designs, ensuring accessibility and great performance on mobile screens.",
-      "ai": "Artificial Intelligence: Creation of autonomous agents, advanced prompt engineering, and workflow automation using Large Language Models (LLMs)."
+      "frontend": "Microfrontends Architecture: Designing modular and decoupled systems under large-scale standards.",
+      "typescript": "Type Engineering: Implementation of robust data contracts and strict validations with Zod.",
+      "backend": "Distributed Ecosystems: Development of resilient services with Spring Boot and Node.js for high availability.",
+      "database": "Persistence Strategies: Advanced data modeling in relational (MySQL) and NoSQL (MongoDB) environments.",
+      "devops": "Continuous Delivery Culture: Automation of software life cycles with Jenkins and enterprise quality assurance.",
+      "testing": "Software Assurance: Unit and integration testing oriented towards proactive prevention with Vitest.",
+      "uiux": "Design Systems: Building highly reusable atomic components with Tailwind CSS.",
+      "ai": "AI & Automation: Integration of advanced language models for process optimization and intelligent UX."
     }
   },
   "experience": {
-    "title": "Work Experience",
-    "subtitle": "A summary of my roles and the impact generated through my developments.",
+    "title": "Trajectory & Impact",
+    "subtitle": "Technical leadership and strategic execution in corporate and innovation environments.",
     "carouselAria": "Work experience carousel",
     "roles": {
-      "techNova": {
-        "company": "TechNova",
-        "role": "Senior Full-Stack Developer",
-        "period": "01/2022 — Present",
-        "description": "Technical leadership in the architecture and deployment of the main product interface for a scalable SaaS platform.",
+      "nttData": {
+        "company": "NTT DATA",
+        "role": "Senior Frontend Developer",
+        "period": "07/2021 — Present",
+        "description": "Leading the modernization of enterprise platforms through microfrontends architectures and banking-level code quality.",
         "achievements": {
-          "1": "Reduced Time to Interactive (TTI) by 35% using code splitting and caching techniques.",
-          "2": "Developed CI/CD pipelines accelerating deployment time without service disruption.",
-          "3": "Led accessibility initiatives securing WCAG 2.1 AA certifications."
+          "1": "Architected and implemented the transition to microfrontends with React, improving team autonomy by 50%.",
+          "2": "Established quality standards using Jenkins, SonarQube, and Fortify, reducing vulnerabilities by 80%.",
+          "3": "Optimized critical performance through code splitting and advanced caching strategies with Next.js."
         },
-        "technologies": "React, Next.js, TypeScript, Spring Boot, PostgreSQL"
+        "technologies": "React, TypeScript, Redux, Microfrontends, Jenkins, Vitest"
       },
-      "dataForge": {
-        "company": "DataForge",
-        "role": "Frontend Engineer",
-        "period": "06/2020 — 12/2021",
-        "description": "Development of robust analytic interfaces for big data visualization and business intelligence tools.",
+      "solusat": {
+        "company": "Inversiones Solusat",
+        "role": "Fullstack & IoT Developer",
+        "period": "02/2018 — 12/2020",
+        "description": "Comprehensive design of telemetry and industrial control solutions, bridging custom hardware with real-time control interfaces.",
         "achievements": {
-          "1": "Architected a modular component system, reducing duplicate work in views by 40%.",
-          "2": "Improved usability metrics by centralizing the application's style base using Tailwind CSS.",
-          "3": "Increased user retention through the refactoring of frontend analytical flows."
+          "1": "Developed real-time monitoring systems using Node.js and MQTT protocol for asset management.",
+          "2": "Designed and programmed embedded hardware in C++ and Java, integrating it with dynamic web dashboards.",
+          "3": "Implemented automatic workflows reducing operational response time by 40%."
         },
-        "technologies": "React, TypeScript, GraphQL, Apollo, Prisma"
+        "technologies": "Node.js, MQTT, C++, Java, JavaScript, Embedded Systems"
       },
-      "cloudWorks": {
-        "company": "CloudWorks",
-        "role": "Full-Stack Developer",
-        "period": "02/2018 — 05/2020",
-        "description": "Development of a transactional APIs cluster and component hydration with progressive frameworks.",
+      "freelance": {
+        "company": "Meditron C.A",
+        "role": "Technical Support Analyst",
+        "period": "Apr 2016 — May 2018",
+        "description": "Provided end-to-end technical support for IT infrastructure, ensuring system stability, security, and operational continuity.",
         "achievements": {
-          "1": "Built efficient APIs capable of securely scaling and serving enterprise resources.",
-          "2": "Structured the migration to Server-Side Rendering (SSR) notably increasing organic traffic.",
-          "3": "Improved observability with metrics and traces."
+          "1": "Installed, configured, and maintained critical hardware and software systems to ensure operational reliability.",
+          "2": "Diagnosed and resolved technical incidents, minimizing downtime across devices and systems.",
+          "3": "Performed electrical safety testing on equipment, ensuring compliance with technical standards.",
+          "4": "Supported the software development team with web layout implementation and maintenance using HTML, CSS, and JavaScript."
         },
-        "technologies": "Vue.js, Node.js, Firebase, PostgreSQL"
+        "technologies": "HTML, CSS, JavaScript, Hardware Support, Technical Diagnostics"
       }
     }
   },
@@ -130,15 +132,50 @@
     ]
   },
   "contact": {
-    "title": "Let's Boost Your Next Project",
-    "subtitle": "Looking for a developer to transform complex requirements into agile, secure, and efficient applications? Let's explore how I can bring value to your team.",
+    "title": "Let's Drive Your Next Enterprise Solution",
+    "subtitle": "Looking for an architect to transform complex requirements into resilient, secure, and scalable applications? Let's design the future of your product.",
     "namePlaceholder": "Your Name or Company",
     "emailPlaceholder": "Your Email",
-    "messagePlaceholder": "Tell me about your project...",
-    "submitButton": "Send Message",
+    "messagePlaceholder": "Describe the technical or business challenge...",
+    "submitButton": "Start Consultation",
     "submittingButton": "Sending...",
     "orDirectly": "Or reach out directly:",
     "emailAddress": "tu.email@example.com"
+  },
+  "tech": {
+    "title": "Tech Stack",
+    "subtitle": "Tools orchestrated for the delivery of high-quality software.",
+    "frontend": "Frontend & UI",
+    "backend": "Backend & Cloud",
+    "database": "Data Persistence",
+    "devops": "Quality & DevOps",
+    "others": "IoT & Specialized Solutions"
+  },
+  "strategy": {
+    "title": "Strategic Pillars",
+    "subtitle": "My methodology combines engineering rigor, architectural scalability, and product vision.",
+    "pillars": {
+      "architecture": {
+        "title": "Scalable Frontend Architecture",
+        "description": "Designing resilient systems that support business growth, prioritizing microfrontends and extreme modularity."
+      },
+      "quality": {
+        "title": "Quality and Maintainability",
+        "description": "A culture of clean code under rigorous corporate standards, ensuring secure and easy-to-evolve software."
+      },
+      "integration": {
+        "title": "Backend-Frontend Integration",
+        "description": "Seamless orchestration of distributed services, efficient APIs, and synchronized global states."
+      },
+      "transformation": {
+        "title": "Digital Transformation",
+        "description": "Leadership in migrating legacy systems towards modern, efficient stacks with a focus on performance."
+      },
+      "iot": {
+        "title": "IoT & Telemetry",
+        "description": "Total connectivity: integrating hardware and real-time data flows with control applications."
+      }
+    }
   },
   "preloader": {
     "role": "Fullstack Developer (Backend focus)",

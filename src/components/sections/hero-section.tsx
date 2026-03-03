@@ -351,17 +351,7 @@ export function HeroSection() {
               </Button>
             </div>
 
-            {/* Tech Stack Preview */}
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-8">
-              {["React", "Next.js", "TypeScript", "Node.js"].map((tech) => (
-                <div
-                  key={tech}
-                  className="px-4 py-2 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 text-sm font-medium text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300 hover:scale-105 relief-element"
-                >
-                  {tech}
-                </div>
-              ))}
-            </div>
+
           </div>
 
           {/* Scroll Indicator */}

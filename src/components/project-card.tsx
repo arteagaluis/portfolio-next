@@ -1,7 +1,10 @@
+"use client";
+
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useTranslations } from 'next-intl';
+import { trackEvent } from '@/lib/analytics';
 
 export type Project = {
   title: string;
@@ -55,6 +58,15 @@ export function ProjectCard({ project }: { project: Project }) {
         {isValidExternalUrl && (
           <a
             href={project.externalUrl}
+            onClick={() => trackEvent({
+              action: 'project_click',
+              category: 'Engagement',
+              label: project.title,
+              params: {
+                project_name: project.title,
+                tech_stack: project.tags.join(', '),
+              }
+            })}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-sm font-medium text-primary underline-offset-4 hover:underline"

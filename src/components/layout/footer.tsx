@@ -1,5 +1,8 @@
+"use client";
+
 import { Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -12,7 +15,15 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-2 sm:gap-4">
             <Button variant="outline" size="sm" asChild>
-              <a href="/cv.pdf" download>
+              <a
+                href="/cv.pdf"
+                download
+                onClick={() => trackEvent({
+                  action: 'cv_download',
+                  category: 'Conversion',
+                  label: 'footer_cv_download',
+                })}
+              >
                 Download CV
               </a>
             </Button>
@@ -20,6 +31,12 @@ export function Footer() {
               <Button variant="ghost" size="icon" asChild>
                 <a
                   href="https://github.com"
+                  onClick={() => trackEvent({
+                    action: 'contact_click',
+                    category: 'Engagement',
+                    label: 'github',
+                    params: { method: 'github' }
+                  })}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -30,6 +47,12 @@ export function Footer() {
               <Button variant="ghost" size="icon" asChild>
                 <a
                   href="https://linkedin.com"
+                  onClick={() => trackEvent({
+                    action: 'contact_click',
+                    category: 'Engagement',
+                    label: 'linkedin',
+                    params: { method: 'linkedin' }
+                  })}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -40,6 +63,12 @@ export function Footer() {
               <Button variant="ghost" size="icon" asChild>
                 <a
                   href="https://twitter.com"
+                  onClick={() => trackEvent({
+                    action: 'contact_click',
+                    category: 'Engagement',
+                    label: 'twitter',
+                    params: { method: 'twitter' }
+                  })}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter"

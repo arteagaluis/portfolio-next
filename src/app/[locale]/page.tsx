@@ -3,6 +3,7 @@ import { ExperienceSection } from '@/components/sections/experience-section';
 import { ContactSection } from '@/components/sections/contact-section';
 import { HeroSection } from '@/components/sections/hero-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
+import { StrategySection } from '@/components/sections/strategy-section';
 import HobbiesSection from '@/components/sections/hobbies-section';
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
+      <StrategySection />
       <ExperienceSection />
       <ProjectsSection />
       <HobbiesSection />

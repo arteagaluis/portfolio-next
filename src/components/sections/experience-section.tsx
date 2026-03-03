@@ -61,10 +61,19 @@ export function ExperienceSection() {
   });
 
   const experiences: Experience[] = useMemo(() => {
-    const roleKeys = ["techNova", "dataForge", "cloudWorks"] as const;
+    const roleKeys = ["nttData", "solusat", "freelance"] as const;
     return roleKeys.map((key) => {
       const period = t(`roles.${key}.period`) || "";
       const [start, end] = period.includes(" — ") ? period.split(" — ") : [period, ""];
+
+      // Fetch achievements dynamically to support more than 3 if needed
+      const achievements: string[] = [];
+      let i = 1;
+      while (t.has(`roles.${key}.achievements.${i}`)) {
+        achievements.push(t(`roles.${key}.achievements.${i}`));
+        i++;
+      }
+
       return {
         id: key,
         company: t(`roles.${key}.company`) || "",
@@ -72,11 +81,7 @@ export function ExperienceSection() {
         start,
         end,
         description: t(`roles.${key}.description`) || "",
-        achievements: [
-          t(`roles.${key}.achievements.1`),
-          t(`roles.${key}.achievements.2`),
-          t(`roles.${key}.achievements.3`),
-        ].filter(Boolean),
+        achievements,
         technologies: (t(`roles.${key}.technologies`) || "").split(", ").map(tech => tech.trim()).filter(Boolean),
       };
     });

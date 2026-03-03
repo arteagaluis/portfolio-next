@@ -13,6 +13,7 @@ import { locales } from "@/navigation";
 import { PreLoader } from "@/components/pre-loader";
 import { LoaderProvider } from "@/context/loader-context";
 import { ContentWrapper } from "@/components/content-wrapper";
+import GoogleAnalytics from "@/components/google-analytics";
 
 import { getTranslations } from "next-intl/server";
 
@@ -52,6 +53,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <Fonts />
       </head>
       <body className="font-body antialiased">
+        <GoogleAnalytics />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider
             attribute="class"

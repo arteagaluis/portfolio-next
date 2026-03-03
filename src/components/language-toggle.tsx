@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { useTransition } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export function LanguageToggle() {
   const locale = useLocale();
@@ -19,6 +20,16 @@ export function LanguageToggle() {
   const [isPending, startTransition] = useTransition();
 
   const handleLocaleChange = (nextLocale: "en" | "es") => {
+    trackEvent({
+      action: 'language_change',
+      category: 'Navigation',
+      label: `from_${locale}_to_${nextLocale}`,
+      params: {
+        from_lang: locale,
+        to_lang: nextLocale
+      }
+    });
+
     startTransition(() => {
       router.replace(pathname, { locale: nextLocale });
     });

@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useTranslations } from "next-intl";
+import { trackEvent } from "@/lib/analytics";
 
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -53,6 +54,12 @@ export function ContactSection() {
     const result = await submitContactForm(null, formData);
 
     if (result.success) {
+      trackEvent({
+        action: 'contact_click',
+        category: 'Conversion',
+        label: 'contact_form_success',
+        params: { method: 'form' }
+      });
       toast({
         title: "Message Sent!",
         description: "Thank you for your message! I'll get back to you soon.",
@@ -167,6 +174,12 @@ export function ContactSection() {
             <p>{t("orDirectly")}</p>
             <a
               href={`mailto:${t("emailAddress")}`}
+              onClick={() => trackEvent({
+                action: 'contact_click',
+                category: 'Engagement',
+                label: 'direct_email',
+                params: { method: 'email' }
+              })}
               className="font-medium text-primary hover:underline flex items-center justify-center gap-2"
             >
               <Mail className="w-4 h-4" />
