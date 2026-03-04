@@ -20,7 +20,7 @@
     "subtitle": "Especializado en arquitecturas escalables, microfrontends y soluciones de alto rendimiento que transforman la visión de negocio en productos tecnológicos de impacto.",
     "ctaPrimary": "Explorar soluciones",
     "ctaSecondary": "Hablemos de arquitectura",
-    "badge": "Liderando la transformación digital"
+    "badge": "Disponible para trabajar"
   },
   "about": {
     "title": "Trayectoria y Enfoque Estratégico",
@@ -123,13 +123,33 @@
     }
   },
   "hobbies": {
-    "title": "Hobbies",
-    "description": "Actividades que disfruto fuera del ámbito profesional.",
+    "title": "Exploración Continua",
+    "description": "Más allá del código, cultivo una mentalidad de curiosidades sistémicas y crecimiento estratégico.",
     "items": [
-      "Leer libros sobre tecnología y filosofía",
-      "Explorar investigaciones en inteligencia artificial",
-      "Construir proyectos experimentales personales",
-      "Entrenamiento físico y actividades al aire libre"
+      {
+        "id": "systems",
+        "title": "Pensamiento Sistémico & Filosofía",
+        "description": "Análisis de sistemas complejos y la filosofía de la tecnología para comprender el impacto masivo del software.",
+        "highlight": "Teoría de la Complejidad"
+      },
+      {
+        "id": "ai",
+        "title": "IA & Flujos Agénticos",
+        "description": "Experimentación con LLMs, agentes autónomos y arquitecturas RAG para optimizar la interacción humano-máquina.",
+        "highlight": "Sistemas Autónomos"
+      },
+      {
+        "id": "craft",
+        "title": "Artesanía Técnica",
+        "description": "Desarrollo de proyectos experimentales con foco en microfrontends y patrones de renderizado de alto rendimiento.",
+        "highlight": "Investigación Arquitectónica"
+      },
+      {
+        "id": "impact",
+        "title": "Fisicalidad Estratégica",
+        "description": "Entrenamiento de alta intensidad como mecanismo para mantener picos cognitivos, disciplina y resiliencia mental.",
+        "highlight": "Enfoque & Resistencia"
+      }
     ]
   },
   "contact": {

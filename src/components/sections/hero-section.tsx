@@ -355,12 +355,12 @@ export function HeroSection() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce pointer-events-none z-10">
+          {/* <div className="absolute bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce pointer-events-none z-10">
             <div className="flex flex-col items-center gap-2 text-muted-foreground/60 opacity-70">
               <span className="text-xs font-medium">Scroll</span>
               <ArrowDown className="w-5 h-5" />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

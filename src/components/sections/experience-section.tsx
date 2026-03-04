@@ -91,7 +91,7 @@ export function ExperienceSection() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative w-full py-24 md:py-32 bg-background/50 overflow-hidden"
+      className="relative w-full py-24 md:py-32 bg-background/50 overflow-hidden flex justify-center"
     >
       {!isMounted ? (
         <div className="container px-4 text-center">

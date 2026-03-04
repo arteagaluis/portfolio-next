@@ -20,7 +20,7 @@
     "subtitle": "Specialized in scalable architectures, microfrontends, and high-performance solutions that transform business vision into impactful technological products.",
     "ctaPrimary": "Explore Solutions",
     "ctaSecondary": "Let's Talk Architecture",
-    "badge": "Leading Digital Transformation"
+    "badge": "Available to work"
   },
   "about": {
     "title": "Career and Strategic Approach",
@@ -122,13 +122,33 @@
     }
   },
   "hobbies": {
-    "title": "Hobbies",
-    "description": "Activities I enjoy outside of professional work.",
+    "title": "Continuous Exploration",
+    "description": "Beyond the codebase, I cultivate a mindset of systemic curiosities and strategic growth.",
     "items": [
-      "Reading books about technology and philosophy",
-      "Exploring artificial intelligence research",
-      "Building experimental side projects",
-      "Fitness and outdoor activities"
+      {
+        "id": "systems",
+        "title": "Systemic Thinking & Philosophy",
+        "description": "Analyzing complex systems and the philosophy of technology to understand the broader impact of software.",
+        "highlight": "Complexity Theory"
+      },
+      {
+        "id": "ai",
+        "title": "AI & Agentic Workflows",
+        "description": "Experimenting with LLMs, autonomous agents, and RAG architectures to optimize human-machine interaction.",
+        "highlight": "Autonomous Systems"
+      },
+      {
+        "id": "craft",
+        "title": "Technical Craftsmanship",
+        "description": "Developing experimental projects focused on microfrontends and high-performance rendering patterns.",
+        "highlight": "Architectural Research"
+      },
+      {
+        "id": "impact",
+        "title": "Strategic Physicality",
+        "description": "High-intensity training as a mechanism to sustain cognitive peak, discipline, and mental resilience.",
+        "highlight": "Focus & Endurance"
+      }
     ]
   },
   "contact": {
