@@ -25,7 +25,7 @@
   "about": {
     "title": "Career and Strategic Approach",
     "imageAlt": "Luis Arteaga - Senior Frontend Engineer",
-    "intro": "I am an Electronic Engineer and Frontend Developer with experience building scalable applications in corporate environments. My focus goes beyond implementing interfaces — I aim to understand the full architecture, make sound technical decisions, and ensure every solution remains maintainable over time. I work with React and TypeScript in microfrontend-based architectures, applying best practices, automated testing, and CI/CD processes. My background in IoT and backend development allows me to approach products with a holistic perspective, from service integration to the final user experience.",
+    "intro": "I am an Electronic Engineer and Fullstack Developer focused on building scalable applications in corporate environments. My experience spans both frontend development with React and TypeScript and backend services using NestJS, Node.js, and Spring Boot. I am particularly interested in understanding the full system architecture in order to make well-informed technical decisions and deliver solutions that are maintainable in the long term. I work with modern architectures based on microfrontends and scalable APIs, applying engineering best practices such as automated testing, clean architecture, and CI/CD pipelines. Additionally, my background in IoT and backend development allows me to maintain a holistic view of the product, from service integration and API design to the final user experience.",
     "skillsTitle": "Strategic Pillars",
     "skills": {
       "frontend": "Microfrontends Architecture: Designing modular and decoupled systems under large-scale standards.",
@@ -46,7 +46,7 @@
       "nttData": {
         "company": "NTT DATA",
         "role": "Senior Frontend Developer",
-        "period": "07/2021 — Present",
+        "period": "Oct/2021 — Present",
         "description": "Leading the modernization of enterprise platforms through microfrontends architectures and banking-level code quality.",
         "achievements": {
           "1": "Architected and implemented the transition to microfrontends with React, improving team autonomy by 50%.",
@@ -58,7 +58,7 @@
       "solusat": {
         "company": "Inversiones Solusat",
         "role": "Fullstack & IoT Developer",
-        "period": "02/2018 — 12/2020",
+        "period": "Feb/2018 — Dec/2020",
         "description": "Comprehensive design of telemetry and industrial control solutions, bridging custom hardware with real-time control interfaces.",
         "achievements": {
           "1": "Developed real-time monitoring systems using Node.js and MQTT protocol for asset management.",
@@ -70,7 +70,7 @@
       "freelance": {
         "company": "Meditron C.A",
         "role": "Technical Support Analyst",
-        "period": "Apr 2016 — May 2018",
+        "period": "Apr/2016 — Dec/2018",
         "description": "Provided end-to-end technical support for IT infrastructure, ensuring system stability, security, and operational continuity.",
         "achievements": {
           "1": "Installed, configured, and maintained critical hardware and software systems to ensure operational reliability.",

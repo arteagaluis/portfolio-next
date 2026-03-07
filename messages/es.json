@@ -25,7 +25,7 @@
   "about": {
     "title": "Trayectoria y Enfoque Estratégico",
     "imageAlt": "Luis Arteaga - Senior Frontend Engineer",
-    "intro": "Soy Ingeniero Electrónico y desarrollador Frontend con experiencia construyendo aplicaciones escalables en entornos corporativos. Mi enfoque va más allá de implementar interfaces: me interesa entender la arquitectura completa, tomar decisiones técnicas con criterio y asegurar que cada solución sea mantenible en el tiempo. Trabajo con React y TypeScript en arquitecturas basadas en microfrontends, aplicando buenas prácticas, testing automatizado y procesos de CI/CD. Mi background en IoT y backend me permite tener una visión integral del producto, desde la integración con servicios hasta la experiencia final del usuario.",
+    "intro": "Soy Ingeniero Electrónico y desarrollador Fullstack con enfoque en la construcción de aplicaciones escalables en entornos corporativos. Mi experiencia abarca tanto el desarrollo frontend con React y TypeScript como la construcción de servicios backend robustos con NestJS, Node.js y Spring Boot. Me interesa comprender la arquitectura completa de los sistemas para tomar decisiones técnicas bien fundamentadas y construir soluciones mantenibles a largo plazo. Trabajo con arquitecturas modernas basadas en microfrontends y APIs escalables, aplicando buenas prácticas de ingeniería, testing automatizado, clean architecture y procesos de CI/CD. Además, mi experiencia en IoT y desarrollo backend me permite tener una visión integral del producto, desde la integración de servicios y diseño de APIs hasta la experiencia final del usuario.",
     "skillsTitle": "Ejes Estratégicos",
     "skills": {
       "frontend": "Arquitectura de Microfrontends: Diseño de sistemas modulares y desacoplados bajo estándares de gran escala.",
@@ -46,7 +46,7 @@
       "nttData": {
         "company": "NTT DATA",
         "role": "Senior Frontend Developer | Fullstack Engineer",
-        "period": "07/2021 — Presente",
+        "period": "Oct/2021 — Presente",
         "description": "Liderazgo en la modernización de plataformas empresariales mediante arquitecturas de microfrontends, estándares de calidad de nivel bancario y soporte integral a servicios backend construidos con Spring Boot.",
         "achievements": {
           "1": "Arquitecté e implementé la transición a microfrontends con React y TypeScript, incrementando la autonomía y escalabilidad de los equipos.",
@@ -59,7 +59,7 @@
       "solusat": {
         "company": "Inversiones Solusat",
         "role": "Desarrollador Fullstack & IoT",
-        "period": "02/2018 — 12/2020",
+        "period": "Feb/2018 — Dic/2020",
         "description": "Diseño integral de soluciones de telemetría y control industrial, uniendo hardware personalizado con interfaces de control en tiempo real.",
         "achievements": {
           "1": "Desarrollé sistemas de monitoreo en tiempo real utilizando Node.js y protocolo MQTT para gestión de activos.",
@@ -71,7 +71,7 @@
       "freelance": {
         "company": "Meditron C.A",
         "role": "Analista de Soporte Técnico",
-        "period": "Abr 2016 — May 2018",
+        "period": "Abr/2016 — Dic/2018",
         "description": "Responsable del soporte técnico integral en infraestructura tecnológica, asegurando la operatividad, seguridad y continuidad de los sistemas.",
         "achievements": {
           "1": "Instalé, configuré y actualicé hardware y software crítico garantizando la estabilidad operativa.",
